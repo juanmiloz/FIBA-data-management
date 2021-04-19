@@ -24,17 +24,17 @@
                   <Font name="Montserrat SemiBold" size="12.0" />
                </font>
             </JFXButton>
-            <TableView fx:id="tvClients" layoutX="47.0" layoutY="274.0" prefHeight="437.0" prefWidth="1275.0">
+            <TableView fx:id="tvPlayers" layoutX="47.0" layoutY="274.0" prefHeight="437.0" prefWidth="1275.0">
                <columns>
-                  <TableColumn fx:id="tcClientName" prefWidth="100.0" text="Year" />
-                  <TableColumn fx:id="tcClientIdentification" minWidth="0.0" prefWidth="100.0" text="Team" />
-                  <TableColumn fx:id="tcClientStatus" prefWidth="185.0" text="Name" />
-                  <TableColumn minWidth="8.0" prefWidth="100.0" text="Age" />
-                  <TableColumn prefWidth="159.0" text="Player Efficiency Rating" />
-                  <TableColumn prefWidth="168.0" text="True Shooting" />
-                  <TableColumn minWidth="0.0" prefWidth="159.0" text="Rebounds" />
-                  <TableColumn prefWidth="128.0" text="Assists" />
-                  <TableColumn prefWidth="175.0" text="Steals" />
+                  <TableColumn fx:id="tcYear" prefWidth="100.0" text="Year" />
+                  <TableColumn fx:id="tcTeam" minWidth="0.0" prefWidth="100.0" text="Team" />
+                  <TableColumn fx:id="tcName" prefWidth="185.0" text="Name" />
+                  <TableColumn fx:id="tcAge" minWidth="8.0" prefWidth="100.0" text="Age" />
+                  <TableColumn fx:id="tcPER" prefWidth="159.0" text="Player Efficiency Rating" />
+                  <TableColumn fx:id="tcTrueShooting" prefWidth="168.0" text="True Shooting" />
+                  <TableColumn fx:id="tcRebounds" minWidth="0.0" prefWidth="159.0" text="Rebounds" />
+                  <TableColumn fx:id="tcAssits" prefWidth="128.0" text="Assists" />
+                  <TableColumn fx:id="tcSteals" prefWidth="175.0" text="Steals" />
                </columns>
             </TableView>
             <JFXButton fx:id="btnTrueShooting" layoutX="308.0" layoutY="211.0" onAction="#filterByTrueShooting" prefHeight="42.0" prefWidth="229.0" style="-fx-background-color: #000000;" text="Filter by True Shooting" textFill="WHITE">
