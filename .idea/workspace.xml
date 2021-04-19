@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e2800b2-063d-4f4b-8030-7b378cf6c891" name="Default Changelist" comment="" />
+    <list default="true" id="8e2800b2-063d-4f4b-8030-7b378cf6c891" name="Default Changelist" comment="fix">
+      <change beforePath="$PROJECT_DIR$/FIBA data management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FIBA data management.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,8 +34,16 @@
       <option name="presentableId" value="Default" />
       <updated>1618853344507</updated>
       <workItem from="1618853348727" duration="50000" />
-      <workItem from="1618853476447" duration="709000" />
+      <workItem from="1618853476447" duration="1008000" />
     </task>
+    <task id="LOCAL-00001" summary="fix">
+      <created>1618854442086</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618854442086</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -49,5 +59,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>
