@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="300.0" prefWidth="1368.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="766.0" fitWidth="1373.0" layoutX="-3.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../data/images/Background.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnPER" layoutX="47.0" layoutY="211.0" onAction="#filterByPER" prefHeight="42.0" prefWidth="229.0" style="-fx-background-color: #000000;" text="Filter by Player Efficiency Rating" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="12.0" />
+               </font>
+            </JFXButton>
+            <TableView fx:id="tvClients" layoutX="47.0" layoutY="274.0" prefHeight="437.0" prefWidth="1275.0">
+               <columns>
+                  <TableColumn fx:id="tcClientName" prefWidth="100.0" text="Year" />
+                  <TableColumn fx:id="tcClientIdentification" minWidth="0.0" prefWidth="100.0" text="Team" />
+                  <TableColumn fx:id="tcClientStatus" prefWidth="185.0" text="Name" />
+                  <TableColumn minWidth="8.0" prefWidth="100.0" text="Age" />
+                  <TableColumn prefWidth="159.0" text="Player Efficiency Rating" />
+                  <TableColumn prefWidth="168.0" text="True Shooting" />
+                  <TableColumn minWidth="0.0" prefWidth="159.0" text="Rebounds" />
+                  <TableColumn prefWidth="128.0" text="Assists" />
+                  <TableColumn prefWidth="175.0" text="Steals" />
+               </columns>
+            </TableView>
+            <JFXButton fx:id="btnTrueShooting" layoutX="308.0" layoutY="211.0" onAction="#filterByTrueShooting" prefHeight="42.0" prefWidth="229.0" style="-fx-background-color: #000000;" text="Filter by True Shooting" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnRebounds" layoutX="570.0" layoutY="211.0" onAction="#filterByRebounds" prefHeight="42.0" prefWidth="229.0" style="-fx-background-color: #000000;" text="Filter by Rebounds" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnAssists" layoutX="831.0" layoutY="211.0" onAction="#filterByAssists" prefHeight="42.0" prefWidth="229.0" style="-fx-background-color: #000000;" text="Filter by Assists" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnSteals" layoutX="1093.0" layoutY="211.0" onAction="#filterBySteals" prefHeight="42.0" prefWidth="229.0" style="-fx-background-color: #000000;" text="Filter by Steals" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnSearchByName" layoutX="1160.0" layoutY="90.0" prefHeight="43.0" prefWidth="163.0" style="-fx-background-color: #000000;" text="Search" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+            </JFXButton>
+            <TextField fx:id="txtFieldSearchName" layoutX="227.0" layoutY="92.0" prefHeight="42.0" prefWidth="886.0" promptText="Enter player name">
+               <font>
+                  <Font name="Montserrat Regular" size="20.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
