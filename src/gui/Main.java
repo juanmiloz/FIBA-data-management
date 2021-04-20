@@ -8,13 +8,13 @@ import javafx.stage.Stage;
 import model.DataManagement;
 
 public class Main extends Application {
-
 	private DataManagementGUI dataManagementGUI;
 	private DataManagement dataManagement;
 
 	public Main(){
 		dataManagement = new DataManagement();
 		dataManagementGUI = new DataManagementGUI(dataManagement);
+		System.out.println("gui");
 	}
 
 	public static void main(String[] args) {
