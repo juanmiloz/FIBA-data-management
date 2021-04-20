@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e2800b2-063d-4f4b-8030-7b378cf6c891" name="Default Changelist" comment="fix">
+    <list default="true" id="180d9719-d872-4151-b326-5efc772d22ec" name="Default Changelist" comment="add binaryTree implementation">
+      <change afterPath="$PROJECT_DIR$/bin/gui/DataManagementGUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/gui/mainPane.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/gui/mainScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/binaryTree/BinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/binaryTree/BinaryTreeInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/structures/binaryTree/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FIBA data management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FIBA data management.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/gui/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/DataManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/DataManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
+    </list>
+    <list id="4026180b-094f-44e8-b90a-df0c140719ab" name="Changes by Juan Pablo" comment="">
+      <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +30,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1rOi4F6mpEhH50494yEX0EdrTW8" />
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/gui/Main.java">
+      <ranges>
+        <range start1="10" end1="11" start2="10" end2="10" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
+        <range start1="17" end1="17" start2="16" end2="17" changelist="4026180b-094f-44e8-b90a-df0c140719ab" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProjectId" id="1rPCkhQtNr5JodZuGGqFQTbvV6u" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -22,28 +48,61 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Ejercicios para TI 2/ArbolesBinario" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.Main" />
+      <module name="FIBA data management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8e2800b2-063d-4f4b-8030-7b378cf6c891" name="Default Changelist" comment="" />
-      <created>1618853344507</created>
+      <changelist id="180d9719-d872-4151-b326-5efc772d22ec" name="Default Changelist" comment="" />
+      <created>1618868487694</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1618853344507</updated>
-      <workItem from="1618853348727" duration="50000" />
-      <workItem from="1618853476447" duration="1008000" />
+      <updated>1618868487694</updated>
+      <workItem from="1618868492705" duration="241000" />
+      <workItem from="1618885012881" duration="4369000" />
+      <workItem from="1618933972637" duration="1704000" />
     </task>
-    <task id="LOCAL-00001" summary="fix">
-      <created>1618854442086</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1618854442086</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -59,9 +118,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="add binaryTree implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add binaryTree implementation" />
   </component>
 </project>

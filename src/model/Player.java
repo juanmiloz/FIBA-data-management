@@ -4,16 +4,18 @@ public class Player {
     private String name;
     private String team;
     private int year;
+    private int age;
     private double per;
     private double trueShooting;
     private double rebounds;
     private double assists;
     private double steals;
 
-    public Player(String name,String team, int year, double per, double trueShooting, double rebounds, double assists, double steals){
+    public Player(String name, String team, int year, int age, double per, double trueShooting, double rebounds, double assists, double steals){
         this.name = name;
         this.team = team;
         this.year = year;
+        this.age = age;
         this.per = per;
         this.trueShooting = trueShooting;
         this.rebounds = rebounds;
@@ -83,5 +85,13 @@ public class Player {
 
     public void setSteals(double steals) {
         this.steals = steals;
+    }
+
+    public int getAge(int age){
+        return age;
+    }
+
+    public void setAge(int age){
+        this.age = age;
     }
 }

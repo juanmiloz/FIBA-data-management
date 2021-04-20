@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-<<<<<<< HEAD
   <component name="EclipseModuleManager">
     <libelement value="jar://$MODULE_DIR$/lib/jfoenix-8.0.10.jar!/" />
     <src_description expected_position="0">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
     </src_description>
   </component>
-=======
->>>>>>> 0c0e86a077cf10bff39514ff11392e8af8027689
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/bin" />
     <exclude-output />
@@ -17,8 +14,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
-<<<<<<< HEAD
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library name="jfoenix-8.0.10.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/jfoenix-8.0.10.jar!/" />
@@ -27,7 +23,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-=======
->>>>>>> 0c0e86a077cf10bff39514ff11392e8af8027689
   </component>
 </module>
