@@ -67,6 +67,11 @@
                   <Font name="Montserrat Regular" size="20.0" />
                </font>
             </TextField>
+            <JFXButton fx:id="btnImportData" layoutX="632.0" layoutY="29.0" onAction="#importData" prefHeight="43.0" prefWidth="163.0" style="-fx-background-color: #000000;" text="Import data" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </top>
