@@ -201,7 +201,7 @@ public class DataManagementGUI {
 		stage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		alert.setTitle("Info Player");
 		alert.setHeaderText("Name Player: " + player.getName());
-		alert.setContentText("Team: " + player.getTeam() + "\nYear: " + player.getYear() + "\nAge: " + player.getYear()
+		alert.setContentText("Team: " + player.getTeam() + "\nYear: " + player.getYear() + "\nAge: " + player.getAge()
 		+ "\nPER: " + player.getPer() + "\nTrue Shooting: " + player.getTrueShooting() + "\nRebounds: " + player.getRebounds()
 		+ "\nAssists" + player.getAssists() + "\nSteals: " + player.getSteals() + "\nTime to search: " + timeToSearch + "nanoseconds");
 		alert.show();
