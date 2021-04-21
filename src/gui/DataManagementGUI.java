@@ -84,9 +84,6 @@ public class DataManagementGUI {
     @FXML
     private TableColumn<Player, Double> tcSteals;
 
-	@FXML
-	private JFXButton btnImportData;
-
 	public DataManagementGUI(DataManagement dataManagement) {
 		this.dataManagement = dataManagement;
 	}
@@ -100,11 +97,10 @@ public class DataManagementGUI {
 		mainPane.getStyleClass().addAll(mainScreen.getStylesheets());
 		mainPane.getChildren().clear();
 		mainPane.setCenter(mainScreen);
-
+		importData();
 	}
 
-	@FXML
-	public void importData(ActionEvent event) throws IOException {
+	public void importData() throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(DATA_BASE));
 		String line = br.readLine();
 		line = br.readLine();
@@ -132,6 +128,25 @@ public class DataManagementGUI {
 	}
 
 	@FXML
+	void seachByName(ActionEvent event) throws FileNotFoundException {
+		long timeToSearch;
+		if(!txtFieldSearchName.getText().equalsIgnoreCase("")) {
+			long startTime = System.currentTimeMillis();
+			Player player = dataManagement.searchPlayerLinearly(txtFieldSearchName.getText());
+			long endTime = System.currentTimeMillis();
+			timeToSearch = endTime - startTime;
+			if(player != null){
+				infoPlayerAlert(player,timeToSearch);
+			}else{
+				playerNotExistAlert(timeToSearch);
+			}
+		}else{
+			txtEmptyAlert();
+		}
+		txtFieldSearchName.setText("");
+	}
+
+	@FXML
 	void filterByAssists(ActionEvent event) {
 
 	}
@@ -156,8 +171,10 @@ public class DataManagementGUI {
 
 	}
 
+	//alerts
+
 	@FXML
-	void showAbout(ActionEvent event) throws FileNotFoundException {
+	public void showAbout(ActionEvent event) throws FileNotFoundException {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
 		stage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
@@ -168,6 +185,35 @@ public class DataManagementGUI {
 		alert.showAndWait();
 	}
 
+	public void txtEmptyAlert() throws FileNotFoundException {
+		Alert alert = new Alert(AlertType.ERROR);
+		Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		alert.setTitle("Alert");
+		alert.setHeaderText("field empty");
+		alert.setContentText("The field cannot be empty");
+		alert.show();
+	}
 
+	public void infoPlayerAlert(Player player, long timeToSearch) throws FileNotFoundException {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		alert.setTitle("Info Player");
+		alert.setHeaderText("Name Player: " + player.getName());
+		alert.setContentText("Team: " + player.getTeam() + "\nYear: " + player.getYear() + "\nAge: " + player.getYear()
+		+ "\nPER: " + player.getPer() + "\nTrue Shooting: " + player.getTrueShooting() + "\nRebounds: " + player.getRebounds()
+		+ "\nAssists" + player.getAssists() + "\nSteals: " + player.getSteals() + "\nTime to search: " + timeToSearch);
+		alert.show();
+	}
 
+	public void playerNotExistAlert(long timeToSearch) throws FileNotFoundException {
+		Alert alert = new Alert(AlertType.ERROR);
+		Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		alert.setTitle("Alert");
+		alert.setHeaderText("non-existent player");
+		alert.setContentText("The player is not on the list \nTime to search: " + timeToSearch);
+		alert.show();
+	}
 }

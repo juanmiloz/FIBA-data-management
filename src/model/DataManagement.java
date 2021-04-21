@@ -18,4 +18,13 @@ public class DataManagement {
 	public ArrayList<Player> getListPlayer(){
 		return listPlayer;
 	}
+
+	public Player searchPlayerLinearly(String name){
+		for(int i = 0; i < listPlayer.size(); i++){
+			if(listPlayer.get(i).getName().equalsIgnoreCase(name)){
+				return listPlayer.get(i);
+			}
+		}
+		return null;
+	}
 }
