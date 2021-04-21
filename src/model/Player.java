@@ -87,7 +87,7 @@ public class Player {
         this.steals = steals;
     }
 
-    public int getAge(int age){
+    public int getAge(){
         return age;
     }
 
