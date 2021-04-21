@@ -4,7 +4,9 @@
     <list default="true" id="180d9719-d872-4151-b326-5efc772d22ec" name="Default Changelist" comment="add binaryTree implementation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/gui/DataManagementGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/gui/DataManagementGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/DataManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/DataManagement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DataManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DataManagement.java" afterDir="false" />
     </list>
     <list id="4026180b-094f-44e8-b90a-df0c140719ab" name="Changes by Juan Pablo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +80,8 @@
       <workItem from="1618885012881" duration="4369000" />
       <workItem from="1618933972637" duration="2417000" />
       <workItem from="1618938536880" duration="17998000" />
+      <workItem from="1619019557947" duration="6785000" />
+      <workItem from="1619039972448" duration="3110000" />
     </task>
     <servers />
   </component>

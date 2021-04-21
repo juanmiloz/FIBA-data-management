@@ -19,12 +19,13 @@ public class DataManagement {
 		return listPlayer;
 	}
 
-	public Player searchPlayerLinearly(String name){
+	public ArrayList<Player> searchPlayerLinearly(String name){
+		ArrayList<Player> playerTemporates = new ArrayList<>();
 		for(int i = 0; i < listPlayer.size(); i++){
 			if(listPlayer.get(i).getName().equalsIgnoreCase(name)){
-				return listPlayer.get(i);
+				playerTemporates.add(listPlayer.get(i));
 			}
 		}
-		return null;
+		return playerTemporates;
 	}
 }

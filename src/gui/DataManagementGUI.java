@@ -1,8 +1,10 @@
 package gui;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,17 +12,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.DataManagement;
 import model.Player;
+import org.omg.Messaging.SyncScopeHelper;
 
 public class DataManagementGUI {
 
@@ -84,6 +86,45 @@ public class DataManagementGUI {
     @FXML
     private TableColumn<Player, Double> tcSteals;
 
+    //attributes screenInfoPlayer
+
+	@FXML
+	private Label labNumMax;
+
+	@FXML
+	private Label labNumCurrent;
+
+	@FXML
+	private JFXTextField txtTeamPlayer;
+
+	@FXML
+	private JFXTextField txtYearPlayer;
+
+	@FXML
+	private JFXTextField txtAgePlayer;
+
+	@FXML
+	private JFXTextField txtPerPlayer;
+
+	@FXML
+	private JFXTextField txtTrueShootingPlayer;
+
+	@FXML
+	private JFXTextField txtReboundsPlayer;
+
+	@FXML
+	private JFXTextField txtAssistsPlayer;
+
+	@FXML
+	private JFXTextField txtStealsPlayer;
+
+	@FXML
+	private JFXTextField txtNamePlayer;
+
+	private Stage modalStage;
+
+	private ArrayList<Player> playerTempotares;
+
 	public DataManagementGUI(DataManagement dataManagement) {
 		this.dataManagement = dataManagement;
 	}
@@ -128,15 +169,15 @@ public class DataManagementGUI {
 	}
 
 	@FXML
-	void seachByName(ActionEvent event) throws FileNotFoundException {
+	public void seachByName(ActionEvent event) throws IOException {
 		long timeToSearch;
 		if(!txtFieldSearchName.getText().equalsIgnoreCase("")) {
 			long startTime = System.nanoTime();
-			Player player = dataManagement.searchPlayerLinearly(txtFieldSearchName.getText());
+			playerTempotares = dataManagement.searchPlayerLinearly(txtFieldSearchName.getText());
 			long endTime = System.nanoTime();
 			timeToSearch = endTime - startTime;
-			if(player != null){
-				infoPlayerAlert(player,timeToSearch);
+			if(playerTempotares.size() != 0){
+				loadScreenPlayerInfo(playerTempotares);
 			}else{
 				playerNotExistAlert(timeToSearch);
 			}
@@ -146,9 +187,39 @@ public class DataManagementGUI {
 		txtFieldSearchName.setText("");
 	}
 
+	public void loadScreenPlayerInfo(ArrayList<Player> playerInfo) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("screenInfoPlayer.fxml"));
+		fxmlLoader.setController(this);
+
+		Parent infoPlayer = fxmlLoader.load();
+
+		modalStage = new Stage();
+		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStage.setScene(new Scene(infoPlayer));
+		modalStage.setTitle("Info Player");
+		modalStage.initModality(Modality.WINDOW_MODAL);
+
+		modalStage.show();
+		loadInfoPlayer(playerInfo, 0, 1);
+	}
+
+	public void loadInfoPlayer(ArrayList<Player> playerInfo, int pos, int posCurrentLabel){
+		labNumCurrent.setText(String.valueOf(posCurrentLabel));
+		txtNamePlayer.setText(playerInfo.get(pos).getName());
+		txtTeamPlayer.setText(playerInfo.get(pos).getTeam());
+		txtYearPlayer.setText(String.valueOf(playerInfo.get(pos).getYear()));
+		txtAgePlayer.setText(String.valueOf(playerInfo.get(pos).getAge()));
+		txtPerPlayer.setText(String.valueOf(playerInfo.get(pos).getPer()));
+		txtTrueShootingPlayer.setText(String.valueOf(playerInfo.get(pos).getTrueShooting()));
+		txtReboundsPlayer.setText(String.valueOf(playerInfo.get(pos).getRebounds()));
+		txtAssistsPlayer.setText(String.valueOf(playerInfo.get(pos).getAssists()));
+		txtStealsPlayer.setText(String.valueOf(playerInfo.get(pos).getSteals()));
+		labNumMax.setText(String.valueOf(playerInfo.size()));
+	}
+
 	@FXML
 	void filterByAssists(ActionEvent event) {
-
+		
 	}
 
 	@FXML
@@ -169,6 +240,31 @@ public class DataManagementGUI {
 	@FXML
 	void filterByTrueShooting(ActionEvent event) {
 
+	}
+
+	//methods screenInfoPlayer
+
+	@FXML
+	public void nextPlayer(ActionEvent event) {
+		if(Integer.parseInt(labNumCurrent.getText())==Integer.parseInt(labNumMax.getText())){
+			int pos = 0;
+			loadInfoPlayer(playerTempotares,pos, 1);
+		}else {
+			int pos = Integer.parseInt(labNumCurrent.getText());
+			System.out.println(pos);
+			loadInfoPlayer(playerTempotares,pos, Integer.parseInt(String.valueOf(labNumCurrent.getText()))+1);
+		}
+	}
+
+	@FXML
+	public void prevPlayer(ActionEvent event) {
+		if(Integer.parseInt(labNumCurrent.getText())==1){
+			int pos = playerTempotares.size()-1;
+			loadInfoPlayer(playerTempotares,pos,playerTempotares.size());
+		}else {
+			int pos = Integer.parseInt(labNumCurrent.getText())-2;
+			loadInfoPlayer(playerTempotares,pos,Integer.parseInt(String.valueOf(labNumCurrent.getText()))-1);
+		}
 	}
 
 	//alerts
