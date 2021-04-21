@@ -131,9 +131,9 @@ public class DataManagementGUI {
 	void seachByName(ActionEvent event) throws FileNotFoundException {
 		long timeToSearch;
 		if(!txtFieldSearchName.getText().equalsIgnoreCase("")) {
-			long startTime = System.currentTimeMillis();
+			long startTime = System.nanoTime();
 			Player player = dataManagement.searchPlayerLinearly(txtFieldSearchName.getText());
-			long endTime = System.currentTimeMillis();
+			long endTime = System.nanoTime();
 			timeToSearch = endTime - startTime;
 			if(player != null){
 				infoPlayerAlert(player,timeToSearch);
@@ -203,7 +203,7 @@ public class DataManagementGUI {
 		alert.setHeaderText("Name Player: " + player.getName());
 		alert.setContentText("Team: " + player.getTeam() + "\nYear: " + player.getYear() + "\nAge: " + player.getYear()
 		+ "\nPER: " + player.getPer() + "\nTrue Shooting: " + player.getTrueShooting() + "\nRebounds: " + player.getRebounds()
-		+ "\nAssists" + player.getAssists() + "\nSteals: " + player.getSteals() + "\nTime to search: " + timeToSearch);
+		+ "\nAssists" + player.getAssists() + "\nSteals: " + player.getSteals() + "\nTime to search: " + timeToSearch + "nanoseconds");
 		alert.show();
 	}
 
@@ -213,7 +213,7 @@ public class DataManagementGUI {
 		stage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		alert.setTitle("Alert");
 		alert.setHeaderText("non-existent player");
-		alert.setContentText("The player is not on the list \nTime to search: " + timeToSearch);
+		alert.setContentText("The player is not on the list \nTime to search: " + timeToSearch + " nanoseconds");
 		alert.show();
 	}
 }
