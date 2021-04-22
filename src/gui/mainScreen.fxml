@@ -26,15 +26,16 @@
             </JFXButton>
             <TableView fx:id="tvPlayers" layoutX="47.0" layoutY="274.0" prefHeight="437.0" prefWidth="1275.0">
                <columns>
-                  <TableColumn fx:id="tcYear" prefWidth="100.0" text="Year" />
-                  <TableColumn fx:id="tcTeam" minWidth="0.0" prefWidth="100.0" text="Team" />
-                  <TableColumn fx:id="tcName" prefWidth="185.0" text="Name" />
-                  <TableColumn fx:id="tcAge" minWidth="8.0" prefWidth="100.0" text="Age" />
-                  <TableColumn fx:id="tcPER" prefWidth="159.0" text="Player Efficiency Rating" />
-                  <TableColumn fx:id="tcTrueShooting" prefWidth="168.0" text="True Shooting" />
-                  <TableColumn fx:id="tcRebounds" minWidth="0.0" prefWidth="159.0" text="Rebounds" />
-                  <TableColumn fx:id="tcAssits" prefWidth="128.0" text="Assists" />
-                  <TableColumn fx:id="tcSteals" prefWidth="175.0" text="Steals" />
+                  <TableColumn fx:id="tcYear" prefWidth="78.66666412353516" text="Year" />
+                  <TableColumn fx:id="tcTeam" minWidth="0.0" prefWidth="95.33332824707031" text="Team" />
+                  <TableColumn fx:id="tcName" prefWidth="235.00001525878906" text="Name" />
+                  <TableColumn fx:id="tcAge" minWidth="8.0" prefWidth="70.0" text="Age" />
+                  <TableColumn fx:id="tcPER" prefWidth="167.0" text="Player Efficiency Rating" />
+                  <TableColumn fx:id="tcTrueShooting" prefWidth="122.0" text="True Shooting" />
+                  <TableColumn fx:id="tcRebounds" minWidth="0.0" prefWidth="130.0" text="Rebounds" />
+                  <TableColumn fx:id="tcAssits" prefWidth="122.0" text="Assists" />
+                  <TableColumn fx:id="tcSteals" prefWidth="123.0" text="Steals" />
+                  <TableColumn fx:id="tcBlocks" prefWidth="132.6666259765625" text="Blocks" />
                </columns>
             </TableView>
             <JFXButton fx:id="btnTrueShooting" layoutX="308.0" layoutY="211.0" onAction="#filterByTrueShooting" prefHeight="42.0" prefWidth="229.0" style="-fx-background-color: #000000;" text="Filter by True Shooting" textFill="WHITE">
@@ -67,6 +68,11 @@
                   <Font name="Montserrat Regular" size="20.0" />
                </font>
             </TextField>
+            <JFXButton fx:id="btnBlocks" layoutX="569.0" layoutY="162.0" onAction="#filterByBlocks" prefHeight="42.0" prefWidth="229.0" style="-fx-background-color: #000000;" text="Filter by True Shooting" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </top>

@@ -10,8 +10,9 @@ public class Player {
     private double rebounds;
     private double assists;
     private double steals;
+    private double blocks;
 
-    public Player(String name, String team, int year, int age, double per, double trueShooting, double rebounds, double assists, double steals){
+    public Player(String name, String team, int year, int age, double per, double trueShooting, double rebounds, double assists, double steals, double blocks){
         this.name = name;
         this.team = team;
         this.year = year;
@@ -21,6 +22,7 @@ public class Player {
         this.rebounds = rebounds;
         this.assists = assists;
         this.steals = steals;
+        this.blocks = blocks;
     }
 
     public String getName() {
@@ -93,5 +95,13 @@ public class Player {
 
     public void setAge(int age){
         this.age = age;
+    }
+
+    public double getBlocks() {
+        return blocks;
+    }
+
+    public void setBlocks(double blocks) {
+        this.blocks = blocks;
     }
 }
