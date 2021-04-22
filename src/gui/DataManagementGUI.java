@@ -121,7 +121,74 @@ public class DataManagementGUI {
 	@FXML
 	private JFXTextField txtNamePlayer;
 
+	//Attributes modalPER
+	@FXML
+	private JFXTextField txtFieldPERLower;
+
+	@FXML
+	private JFXTextField txtFieldPERUpper;
+
+
+
+	//Attributes modalTS
+	@FXML
+	private JFXTextField txtFieldTSLower;
+
+	@FXML
+	private JFXTextField txtFieldTSUpper;
+
+
+
+	//Attributes modalREB
+	@FXML
+	private JFXTextField txtFieldREBLower;
+
+	@FXML
+	private JFXTextField txtFieldREBUpper;
+
+
+
+	//Attributes modalAST
+	@FXML
+	private JFXTextField txtFieldASTLower;
+
+	@FXML
+	private JFXTextField txtFieldASTUpper;
+
+
+
+	//Attributes modalSTL
+	@FXML
+	private JFXTextField txtFieldSTLLower;
+
+	@FXML
+	private JFXTextField txtFieldSTLUpper;
+
+
+
+	//Attributes modalBLK
+	@FXML
+	private JFXTextField txtFieldBLKLower;
+
+	@FXML
+	private JFXTextField txtFieldBLKUpper;
+
+	@FXML
+	void btnFilterBLKContinue(ActionEvent event) {
+
+	}
+
+	//Attributes modalTime
+	@FXML
+	private Label txtLabelTime;
+
+
+
 	private Stage modalStage;
+
+
+
+
 
 	private ArrayList<Player> playerTempotares;
 
@@ -312,4 +379,35 @@ public class DataManagementGUI {
 		alert.setContentText("The player is not on the list \nTime to search: " + timeToSearch + " nanoseconds");
 		alert.show();
 	}
+
+	@FXML
+	void btnFilterPERContinue(ActionEvent event) {
+
+	}
+
+	@FXML
+	void btnFilterTSContinue(ActionEvent event) {
+
+	}
+
+	@FXML
+	void btnFilterREBContinue(ActionEvent event) {
+
+	}
+
+	@FXML
+	void btnFilterASTContinue(ActionEvent event) {
+
+	}
+
+	@FXML
+	void btnFilterSTLContinue(ActionEvent event) {
+
+	}
+
+	@FXML
+	void btnOkTime(ActionEvent event) {
+
+	}
+
 }
