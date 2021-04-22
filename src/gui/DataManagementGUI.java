@@ -50,6 +50,9 @@ public class DataManagementGUI {
 	private JFXButton btnSteals;
 
 	@FXML
+	private JFXButton btnBlocks;
+
+	@FXML
 	private JFXButton btnSearchByName;
 
 	@FXML
@@ -85,6 +88,9 @@ public class DataManagementGUI {
 
     @FXML
     private TableColumn<Player, Double> tcSteals;
+
+	@FXML
+	private TableColumn<Player, Double> tcBlocks;
 
     //attributes screenInfoPlayer
 
@@ -213,8 +219,8 @@ public class DataManagementGUI {
 		String line = br.readLine();
 		line = br.readLine();
 		while(line!=null){
-			String [] pLine = line.split(";");
-			dataManagement.addPlayer(pLine[2],pLine[1],Integer.parseInt(pLine[0]),Integer.parseInt(pLine[3]),Double.parseDouble(pLine[4]),Double.parseDouble(pLine[5]),Double.parseDouble(pLine[6]),Double.parseDouble(pLine[7]),Double.parseDouble(pLine[8]));
+			String [] pLine = line.split(",");
+			dataManagement.addPlayer(pLine[2],pLine[1],Integer.parseInt(pLine[0]),Integer.parseInt(pLine[3]),Double.parseDouble(pLine[4]),Double.parseDouble(pLine[5]),Double.parseDouble(pLine[6]),Double.parseDouble(pLine[7]),Double.parseDouble(pLine[8]), Double.parseDouble(pLine[9]));
 			line = br.readLine();
 		}
 		loadPlayers();
@@ -233,15 +239,16 @@ public class DataManagementGUI {
 		tcRebounds.setCellValueFactory(new PropertyValueFactory<Player, Double>("rebounds"));
 		tcAssits.setCellValueFactory(new PropertyValueFactory<Player, Double>("assists"));
 		tcSteals.setCellValueFactory(new PropertyValueFactory<Player, Double>("steals"));
+		tcBlocks.setCellValueFactory(new PropertyValueFactory<Player, Double>("blocks"));
 	}
 
 	@FXML
 	public void seachByName(ActionEvent event) throws IOException {
 		long timeToSearch;
 		if(!txtFieldSearchName.getText().equalsIgnoreCase("")) {
-			long startTime = System.nanoTime();
+			long startTime = System.currentTimeMillis();
 			playerTempotares = dataManagement.searchPlayerLinearly(txtFieldSearchName.getText());
-			long endTime = System.nanoTime();
+			long endTime = System.currentTimeMillis();
 			timeToSearch = endTime - startTime;
 			if(playerTempotares.size() != 0){
 				loadScreenPlayerInfo(playerTempotares);
@@ -309,6 +316,11 @@ public class DataManagementGUI {
 
 	}
 
+	@FXML
+	void filterByBlocks(ActionEvent event) {
+
+	}
+
 	//methods screenInfoPlayer
 
 	@FXML
@@ -366,7 +378,7 @@ public class DataManagementGUI {
 		alert.setHeaderText("Name Player: " + player.getName());
 		alert.setContentText("Team: " + player.getTeam() + "\nYear: " + player.getYear() + "\nAge: " + player.getAge()
 		+ "\nPER: " + player.getPer() + "\nTrue Shooting: " + player.getTrueShooting() + "\nRebounds: " + player.getRebounds()
-		+ "\nAssists" + player.getAssists() + "\nSteals: " + player.getSteals() + "\nTime to search: " + timeToSearch + "nanoseconds");
+		+ "\nAssists" + player.getAssists() + "\nSteals: " + player.getSteals() + "\nTime to search: " + timeToSearch + "milliseconds");
 		alert.show();
 	}
 
@@ -376,7 +388,7 @@ public class DataManagementGUI {
 		stage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		alert.setTitle("Alert");
 		alert.setHeaderText("non-existent player");
-		alert.setContentText("The player is not on the list \nTime to search: " + timeToSearch + " nanoseconds");
+		alert.setContentText("The player is not on the list \nTime to search: " + timeToSearch + " milliseconds");
 		alert.show();
 	}
 

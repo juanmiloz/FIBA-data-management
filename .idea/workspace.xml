@@ -5,8 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/gui/DataManagementGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/gui/DataManagementGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/model/DataManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/DataManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dataBase/NBA_Season_Data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/dataBase/NBA_Season_Data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/mainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/mainScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/DataManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DataManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
     </list>
     <list id="4026180b-094f-44e8-b90a-df0c140719ab" name="Changes by Juan Pablo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +85,9 @@
       <workItem from="1618933972637" duration="2417000" />
       <workItem from="1618938536880" duration="17998000" />
       <workItem from="1619019557947" duration="6785000" />
-      <workItem from="1619039972448" duration="3110000" />
+      <workItem from="1619039972448" duration="3594000" />
+      <workItem from="1619057795988" duration="659000" />
+      <workItem from="1619064083549" duration="2123000" />
     </task>
     <servers />
   </component>
