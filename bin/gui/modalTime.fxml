@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="106.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elapsed Time" textAlignment="CENTER" wrappingWidth="243.09765625">
+         <font>
+            <Font name="Montserrat Bold" size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="111.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The total time taken to complete the operation was:" textAlignment="CENTER" wrappingWidth="243.09766173362732">
+         <font>
+            <Font name="Montserrat Regular" size="12.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="154.0" layoutY="221.0" onAction="#btnOkTime" prefHeight="25.0" prefWidth="147.0" ripplerFill="WHITE" style="-fx-background-color: black;" text="OK" textFill="#fcfcfc">
+         <font>
+            <Font name="Montserrat Regular" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="txtLabelTime" layoutX="194.0" layoutY="149.0" text="0.0s">
+         <font>
+            <Font name="Montserrat Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

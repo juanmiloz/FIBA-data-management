@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="106.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blocks Filter" textAlignment="CENTER" wrappingWidth="243.09765625">
+         <font>
+            <Font name="Montserrat Bold" size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="144.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lower:" textAlignment="CENTER" wrappingWidth="84.09766387939453">
+         <font>
+            <Font name="Montserrat Regular" size="17.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtFieldBLKLower" layoutX="233.0" layoutY="134.0" prefHeight="25.0" prefWidth="67.0" />
+      <Text layoutX="141.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upper:" textAlignment="CENTER" wrappingWidth="90.09765625">
+         <font>
+            <Font name="Montserrat Regular" size="17.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtFieldBLKUpper" layoutX="235.0" layoutY="179.0" prefHeight="25.0" prefWidth="63.0" />
+      <Text layoutX="100.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter values to filter, leave fields empty if you want to use the minimum or maximum value" textAlignment="CENTER" wrappingWidth="266.0293197631836">
+         <font>
+            <Font name="Montserrat Regular" size="10.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="157.0" layoutY="238.0" onAction="#btnFilterBLKContinue" prefHeight="25.0" prefWidth="147.0" ripplerFill="WHITE" style="-fx-background-color: black;" text="Continue" textFill="#fcfcfc">
+         <font>
+            <Font name="Montserrat Regular" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</Pane>
