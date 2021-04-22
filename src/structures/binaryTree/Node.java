@@ -1,9 +1,12 @@
 package structures.binaryTree;
 
+import java.util.ArrayList;
+
 public class Node <K extends Comparable<K>,E>{
 	
 	private K key;
 	private E element;
+	private ArrayList<E> elements;
 	private Node<K,E> leftSon;
 	private Node<K,E> rightSon;
 	private Node<K,E> father;
@@ -54,5 +57,17 @@ public class Node <K extends Comparable<K>,E>{
 
 	public void setFather(Node<K,E> father) {
 		this.father = father;
+	}
+
+	public ArrayList<E> getElements() {
+		return elements;
+	}
+
+	public void setElements(ArrayList<E> elements) {
+		this.elements = elements;
+	}
+
+	public void addElement(E newElement){
+		elements.add(newElement);
 	}
 }

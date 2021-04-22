@@ -2,10 +2,13 @@ package gui;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.property.Property;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.exceptions.CsvException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +25,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.DataManagement;
 import model.Player;
-import org.omg.Messaging.SyncScopeHelper;
 
 public class DataManagementGUI {
 
@@ -188,13 +190,7 @@ public class DataManagementGUI {
 	@FXML
 	private Label txtLabelTime;
 
-
-
 	private Stage modalStage;
-
-
-
-
 
 	private ArrayList<Player> playerTempotares;
 
@@ -202,7 +198,8 @@ public class DataManagementGUI {
 		this.dataManagement = dataManagement;
 	}
 
-	public void showMainScreen() throws IOException {
+
+	public void showMainScreen() throws IOException, CsvException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainScreen.fxml"));
 		fxmlLoader.setController(this);
 
@@ -212,6 +209,20 @@ public class DataManagementGUI {
 		mainPane.getChildren().clear();
 		mainPane.setCenter(mainScreen);
 		importData();
+		try {
+			importDataCSV();
+		} catch(IOException e1) {
+			System.out.println(e1.getMessage());
+		} catch(CsvException e2) {
+			System.out.println(e2.getMessage());
+		}
+	}
+
+	public void importDataCSV() throws IOException, CsvException {
+		FileReader filereader = new FileReader("data/dataBase/NBA_Season_Data.csv");
+		CSVReader csvReader = new CSVReaderBuilder(filereader).withSkipLines(1).build();
+		List<String[]> data = csvReader.readAll();
+		System.out.println(data.size() + "\n" + data.get(0)[2]);
 	}
 
 	public void importData() throws IOException {
@@ -223,6 +234,7 @@ public class DataManagementGUI {
 			dataManagement.addPlayer(pLine[2],pLine[1],Integer.parseInt(pLine[0]),Integer.parseInt(pLine[3]),Double.parseDouble(pLine[4]),Double.parseDouble(pLine[5]),Double.parseDouble(pLine[6]),Double.parseDouble(pLine[7]),Double.parseDouble(pLine[8]), Double.parseDouble(pLine[9]));
 			line = br.readLine();
 		}
+		br.close();
 		loadPlayers();
 	}
 
@@ -292,32 +304,129 @@ public class DataManagementGUI {
 	}
 
 	@FXML
-	void filterByAssists(ActionEvent event) {
-		
+	void filterByAssists(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalAST.fxml"));
+		fxmlLoader.setController(this);
+
+		Parent infoPlayer = fxmlLoader.load();
+
+		modalStage = new Stage();
+		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStage.setScene(new Scene(infoPlayer));
+		modalStage.setTitle("Info Player");
+		modalStage.initModality(Modality.WINDOW_MODAL);
+
+		modalStage.show();
 	}
 
 	@FXML
-	void filterByPER(ActionEvent event) {
+	void filterByPER(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalPer.fxml"));
+		fxmlLoader.setController(this);
+
+		Parent infoPlayer = fxmlLoader.load();
+
+		modalStage = new Stage();
+		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStage.setScene(new Scene(infoPlayer));
+		modalStage.setTitle(" dataFilter by PER y.WINDOW_MODAL);\n");
+		modalStage.initModality(Modality.WINDOW_MODAL);
+		modalStage.show();
+	}
+
+	@FXML
+	void filterByRebounds(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalREB.fxml"));
+		fxmlLoader.setController(this);
+
+		Parent infoPlayer = fxmlLoader.load();
+
+		modalStage = new Stage();
+		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStage.setScene(new Scene(infoPlayer));
+		modalStage.setTitle("Filter by Rebounds data");
+		modalStage.initModality(Modality.WINDOW_MODAL);
+
+		modalStage.show();
+	}
+
+	@FXML
+	void filterBySteals(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalSTL.fxml"));
+		fxmlLoader.setController(this);
+
+		Parent infoPlayer = fxmlLoader.load();
+
+		modalStage = new Stage();
+		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStage.setScene(new Scene(infoPlayer));
+		modalStage.setTitle("Info Player");
+		modalStage.initModality(Modality.WINDOW_MODAL);
+
+		modalStage.show();
+	}
+
+	@FXML
+	void filterByTrueShooting(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalTS.fxml"));
+		fxmlLoader.setController(this);
+
+		Parent infoPlayer = fxmlLoader.load();
+
+		modalStage = new Stage();
+		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStage.setScene(new Scene(infoPlayer));
+		modalStage.setTitle("Info Player");
+		modalStage.initModality(Modality.WINDOW_MODAL);
+
+		modalStage.show();
+	}
+
+	@FXML
+	void filterByBlocks(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalBLK.fxml"));
+		fxmlLoader.setController(this);
+
+		Parent infoPlayer = fxmlLoader.load();
+
+		modalStage = new Stage();
+		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStage.setScene(new Scene(infoPlayer));
+		modalStage.setTitle("Info Player");
+		modalStage.initModality(Modality.WINDOW_MODAL);
+
+		modalStage.show();
+	}
+
+	//methods modals
+
+	@FXML
+	void btnFilterPERContinue(ActionEvent event) {
 
 	}
 
 	@FXML
-	void filterByRebounds(ActionEvent event) {
+	void btnFilterTSContinue(ActionEvent event) {
 
 	}
 
 	@FXML
-	void filterBySteals(ActionEvent event) {
+	void btnFilterREBContinue(ActionEvent event) {
 
 	}
 
 	@FXML
-	void filterByTrueShooting(ActionEvent event) {
+	void btnFilterASTContinue(ActionEvent event) {
 
 	}
 
 	@FXML
-	void filterByBlocks(ActionEvent event) {
+	void btnFilterSTLContinue(ActionEvent event) {
+
+	}
+
+	@FXML
+	void btnOkTime(ActionEvent event) {
 
 	}
 
@@ -391,35 +500,4 @@ public class DataManagementGUI {
 		alert.setContentText("The player is not on the list \nTime to search: " + timeToSearch + " milliseconds");
 		alert.show();
 	}
-
-	@FXML
-	void btnFilterPERContinue(ActionEvent event) {
-
-	}
-
-	@FXML
-	void btnFilterTSContinue(ActionEvent event) {
-
-	}
-
-	@FXML
-	void btnFilterREBContinue(ActionEvent event) {
-
-	}
-
-	@FXML
-	void btnFilterASTContinue(ActionEvent event) {
-
-	}
-
-	@FXML
-	void btnFilterSTLContinue(ActionEvent event) {
-
-	}
-
-	@FXML
-	void btnOkTime(ActionEvent event) {
-
-	}
-
 }

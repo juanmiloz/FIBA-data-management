@@ -26,6 +26,9 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 	}
 	
 	public void insert(Node<K,E> current, K key, E element) {
+		if(key.compareTo(current.getKey())==0){
+			current.addElement(element);
+		}
 		if(key.compareTo(current.getKey())<0 && current.getLeftSon() == null) {
 			Node<K,E> newNode = new Node<>(key, element);
 			current.setLeftSon(newNode);

@@ -8,5 +8,6 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/jfoenix-8.0.10.jar"/>
+	<classpathentry kind="lib" path="lib/opencsv-5.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

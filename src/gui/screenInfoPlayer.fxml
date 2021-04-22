@@ -99,12 +99,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="labNumMax" layoutX="381.0" layoutY="15.0" prefHeight="30.0" prefWidth="16.0">
+            <Label fx:id="labNumMax" layoutX="381.0" layoutY="15.0" prefHeight="30.0" prefWidth="40.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="labNumCurrent" layoutX="357.0" layoutY="14.0" prefHeight="30.0" prefWidth="16.0">
+            <Label fx:id="labNumCurrent" alignment="CENTER_RIGHT" layoutX="340.0" layoutY="14.0" prefHeight="30.0" prefWidth="33.0">
                <font>
                   <Font size="20.0" />
                </font>
