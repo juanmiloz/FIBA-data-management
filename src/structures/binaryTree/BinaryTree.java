@@ -99,9 +99,9 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 		if(key.equals(current.getKey())) {
 			return current.getElement();
 		}else {
-			if(key.compareTo(current.getKey())<1 && current.getLeftSon()!= null) {
+			if(key.compareTo(current.getKey()) < 0 && current.getLeftSon() != null) {
 				return search(key, current.getLeftSon());
-			}else if(key.compareTo(current.getKey())>1 && current.getRightSon()!= null) {
+			}else if(key.compareTo(current.getKey()) > 0 && current.getRightSon() != null) {
 				return search(key, current.getRightSon());
 			}else {
 				return null;
@@ -122,9 +122,9 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 		if(key.equals(current.getKey())) {
 			return current;
 		}else {
-			if(key.compareTo(current.getKey())<1 && current.getLeftSon()!= null) {
+			if(key.compareTo(current.getKey()) < 0 && current.getLeftSon()!= null) {
 				return searchNode(key, current.getLeftSon());
-			}else if(key.compareTo(current.getKey())>1 && current.getRightSon()!= null) {
+			}else if(key.compareTo(current.getKey()) > 0 && current.getRightSon()!= null) {
 				return searchNode(key, current.getRightSon());
 			}else {
 				return null;
