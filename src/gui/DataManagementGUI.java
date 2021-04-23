@@ -183,10 +183,7 @@ public class DataManagementGUI {
 	@FXML
 	private JFXTextField txtFieldBLKUpper;
 
-	@FXML
-	void btnFilterBLKContinue(ActionEvent event) {
-
-	}
+	
 
 	//Attributes modalTime
 	@FXML
@@ -298,9 +295,9 @@ public class DataManagementGUI {
 		modalStage.setScene(new Scene(infoPlayer));
 		modalStage.setTitle("Info Player");
 		modalStage.initModality(Modality.APPLICATION_MODAL);
-
-		modalStage.showAndWait();
 		loadInfoPlayer(playerInfo, 0, 1);
+		modalStage.showAndWait();
+		
 	}
 
 	public void loadInfoPlayer(ArrayList<Player> playerInfo, int pos, int posCurrentLabel){
@@ -444,6 +441,11 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterSTLContinue(ActionEvent event) {
+
+	}
+	
+	@FXML
+	void btnFilterBLKContinue(ActionEvent event) {
 
 	}
 
