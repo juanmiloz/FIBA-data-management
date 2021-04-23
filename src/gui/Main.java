@@ -30,7 +30,7 @@ public class Main extends Application {
 		primaryStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		Parent root = fxmlLoader.load();
 
-		Scene scene = new Scene(root,1366,700);
+		Scene scene = new Scene(root,1366,770);
 		dataManagementGUI.showMainScreen();
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Data Management");

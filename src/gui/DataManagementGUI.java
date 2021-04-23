@@ -255,7 +255,7 @@ public class DataManagementGUI {
 	}
 
 	@FXML
-	public void seachByName(ActionEvent event) throws IOException {
+	public void searchByName(ActionEvent event) throws IOException {
 		long timeToSearch;
 		if(!txtFieldSearchName.getText().equalsIgnoreCase("")) {
 			long startTime = System.currentTimeMillis();
@@ -283,9 +283,9 @@ public class DataManagementGUI {
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
 		modalStage.setTitle("Info Player");
-		modalStage.initModality(Modality.WINDOW_MODAL);
+		modalStage.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.show();
+		modalStage.showAndWait();
 		loadInfoPlayer(playerInfo, 0, 1);
 	}
 
@@ -313,10 +313,10 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
-		modalStage.initModality(Modality.WINDOW_MODAL);
+		modalStage.setTitle("Assists Filter");
+		modalStage.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.show();
+		modalStage.showAndWait();
 	}
 
 	@FXML
@@ -329,9 +329,9 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle(" dataFilter by PER y.WINDOW_MODAL);\n");
-		modalStage.initModality(Modality.WINDOW_MODAL);
-		modalStage.show();
+		modalStage.setTitle("Player Efficiency Rating Filter");
+		modalStage.initModality(Modality.APPLICATION_MODAL);
+		modalStage.showAndWait();
 	}
 
 	@FXML
@@ -344,10 +344,10 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Filter by Rebounds data");
-		modalStage.initModality(Modality.WINDOW_MODAL);
+		modalStage.setTitle("Rebounds Filter");
+		modalStage.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.show();
+		modalStage.showAndWait();
 	}
 
 	@FXML
@@ -360,10 +360,10 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
-		modalStage.initModality(Modality.WINDOW_MODAL);
+		modalStage.setTitle("Steals Filter");
+		modalStage.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.show();
+		modalStage.showAndWait();
 	}
 
 	@FXML
@@ -376,10 +376,10 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
-		modalStage.initModality(Modality.WINDOW_MODAL);
+		modalStage.setTitle("True Shooting Filter");
+		modalStage.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.show();
+		modalStage.showAndWait();
 	}
 
 	@FXML
@@ -392,10 +392,10 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
-		modalStage.initModality(Modality.WINDOW_MODAL);
+		modalStage.setTitle("Blocks Filter");
+		modalStage.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.show();
+		modalStage.showAndWait();
 	}
 
 	//methods modals
