@@ -9,6 +9,8 @@ import com.jfoenix.controls.JFXTextField;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
+
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -65,7 +67,7 @@ public class DataManagementGUI {
     private TableView<Player> tvPlayers;
 
     @FXML
-    private TableColumn<Player, Integer> tcYear;
+    private TableColumn<Player, String> tcYear;
 
     @FXML
     private TableColumn<Player, String> tcTeam;
@@ -209,21 +211,33 @@ public class DataManagementGUI {
 		mainPane.getChildren().clear();
 		mainPane.setCenter(mainScreen);
 		importData();
-		try {
-			importDataCSV();
-		} catch(IOException e1) {
-			System.out.println(e1.getMessage());
-		} catch(CsvException e2) {
-			System.out.println(e2.getMessage());
-		}
+		//importDataCSV();		
 	}
 
 	public void importDataCSV() throws IOException, CsvException {
 		FileReader filereader = new FileReader("data/dataBase/NBA_Season_Data.csv");
 		CSVReader csvReader = new CSVReaderBuilder(filereader).withSkipLines(1).build();
 		List<String[]> data = csvReader.readAll();
-		System.out.println(data.size() + "\n" + data.get(0)[2]);
+		loadPlayers();
+		System.out.println(data.get(0)[2]);
 	}
+	
+	/*
+	public void loadPlayers(List<String[]> data){
+		ObservableList<String[]> observableList;
+		observableList = FXCollections.observableList(data);
+		tvPlayers.setItems(observableList);
+		tcYear.setCellValueFactory();
+		tcTeam.setCellValueFactory(new PropertyValueFactory<Player, String>("team"));
+		tcName.setCellValueFactory(new PropertyValueFactory<Player, String>("name"));
+		tcAge.setCellValueFactory(new PropertyValueFactory<Player, Integer>("age"));
+		tcPER.setCellValueFactory(new PropertyValueFactory<Player, Double>("per"));
+		tcTrueShooting.setCellValueFactory(new PropertyValueFactory<Player, Double>("trueShooting"));
+		tcRebounds.setCellValueFactory(new PropertyValueFactory<Player, Double>("rebounds"));
+		tcAssits.setCellValueFactory(new PropertyValueFactory<Player, Double>("assists"));
+		tcSteals.setCellValueFactory(new PropertyValueFactory<Player, Double>("steals"));
+		tcBlocks.setCellValueFactory(new PropertyValueFactory<Player, Double>("blocks"));
+	}*/
 
 	public void importData() throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(DATA_BASE));
@@ -242,7 +256,7 @@ public class DataManagementGUI {
 		ObservableList<Player> observableList;
 		observableList = FXCollections.observableList(dataManagement.getListPlayer());
 		tvPlayers.setItems(observableList);
-		tcYear.setCellValueFactory(new PropertyValueFactory<Player, Integer>("year"));
+		tcYear.setCellValueFactory(new PropertyValueFactory<Player, String>("team"));
 		tcTeam.setCellValueFactory(new PropertyValueFactory<Player, String>("team"));
 		tcName.setCellValueFactory(new PropertyValueFactory<Player, String>("name"));
 		tcAge.setCellValueFactory(new PropertyValueFactory<Player, Integer>("age"));
@@ -313,7 +327,7 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
+		modalStage.setTitle("Filter by assists");
 		modalStage.initModality(Modality.WINDOW_MODAL);
 
 		modalStage.show();
@@ -329,7 +343,7 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle(" dataFilter by PER y.WINDOW_MODAL);\n");
+		modalStage.setTitle("Filter by PER");
 		modalStage.initModality(Modality.WINDOW_MODAL);
 		modalStage.show();
 	}
@@ -344,7 +358,7 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Filter by Rebounds data");
+		modalStage.setTitle("Filter by Rebounds");
 		modalStage.initModality(Modality.WINDOW_MODAL);
 
 		modalStage.show();
@@ -360,7 +374,7 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
+		modalStage.setTitle("Filter by steals");
 		modalStage.initModality(Modality.WINDOW_MODAL);
 
 		modalStage.show();
@@ -376,7 +390,7 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
+		modalStage.setTitle("Filter by true shooting");
 		modalStage.initModality(Modality.WINDOW_MODAL);
 
 		modalStage.show();
@@ -392,7 +406,7 @@ public class DataManagementGUI {
 		modalStage = new Stage();
 		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
 		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
+		modalStage.setTitle("Filter by blocks");
 		modalStage.initModality(Modality.WINDOW_MODAL);
 
 		modalStage.show();
@@ -439,7 +453,6 @@ public class DataManagementGUI {
 			loadInfoPlayer(playerTempotares,pos, 1);
 		}else {
 			int pos = Integer.parseInt(labNumCurrent.getText());
-			System.out.println(pos);
 			loadInfoPlayer(playerTempotares,pos, Integer.parseInt(String.valueOf(labNumCurrent.getText()))+1);
 		}
 	}

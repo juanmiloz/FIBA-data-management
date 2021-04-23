@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="180d9719-d872-4151-b326-5efc772d22ec" name="Default Changelist" comment="add binaryTree implementation">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/opencsv_5_4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FIBA data management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FIBA data management.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/gui/DataManagementGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/gui/DataManagementGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/gui/screenInfoPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/gui/screenInfoPlayer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/structures/binaryTree/BinaryTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/structures/binaryTree/BinaryTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/structures/binaryTree/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/structures/binaryTree/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/screenInfoPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/screenInfoPlayer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/binaryTree/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/binaryTree/BinaryTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/structures/binaryTree/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/structures/binaryTree/Node.java" afterDir="false" />
     </list>
-    <list id="5a7eb3d6-1e4c-40c3-ba0b-e3f53c792859" name="Changes by Giova" comment="">
-      <change beforePath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" afterDir="false" />
-    </list>
+    <list id="5a7eb3d6-1e4c-40c3-ba0b-e3f53c792859" name="Changes by Giova" comment="" />
     <list id="7d718322-f9cc-4309-909d-fd8dd6e1b7a1" name="Changes by Juan Pablo" comment="">
       <change beforePath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DataManagementGUI.java" afterDir="false" />
     </list>
@@ -27,33 +16,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/gui/DataManagementGUI.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="7" end1="8" start2="8" end2="11" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="24" end1="25" start2="27" end2="27" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="190" end1="192" start2="192" end2="192" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="194" end1="198" start2="194" end2="194" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="204" end1="205" start2="200" end2="202" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="214" end1="214" start2="211" end2="218" changelist="7d718322-f9cc-4309-909d-fd8dd6e1b7a1" />
-        <range start1="216" end1="216" start2="220" end2="227" changelist="5a7eb3d6-1e4c-40c3-ba0b-e3f53c792859" />
-        <range start1="294" end1="296" start2="305" end2="318" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="299" end1="300" start2="321" end2="324" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="301" end1="301" start2="325" end2="333" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="304" end1="305" start2="336" end2="341" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="306" end1="306" start2="342" end2="349" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="309" end1="310" start2="352" end2="357" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="311" end1="311" start2="358" end2="365" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="314" end1="315" start2="368" end2="373" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="316" end1="316" start2="374" end2="381" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="319" end1="320" start2="384" end2="389" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="321" end1="321" start2="390" end2="397" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="322" end1="322" start2="398" end2="430" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-        <range start1="393" end1="424" start2="501" end2="501" changelist="180d9719-d872-4151-b326-5efc772d22ec" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectId" id="1rPCkhQtNr5JodZuGGqFQTbvV6u" />
   <component name="ProjectViewState">
@@ -90,17 +52,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -123,6 +74,7 @@
       <workItem from="1619039972448" duration="3594000" />
       <workItem from="1619057795988" duration="659000" />
       <workItem from="1619064083549" duration="2123000" />
+      <workItem from="1619123121091" duration="3477000" />
     </task>
     <servers />
   </component>
