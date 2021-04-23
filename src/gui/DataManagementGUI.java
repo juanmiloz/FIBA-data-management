@@ -252,7 +252,7 @@ public class DataManagementGUI {
 		ObservableList<Player> observableList;
 		observableList = FXCollections.observableList(dataManagement.getListPlayer());
 		tvPlayers.setItems(observableList);
-		tcYear.setCellValueFactory(new PropertyValueFactory<Player, String>("team"));
+		tcYear.setCellValueFactory(new PropertyValueFactory<Player, String>("year"));
 		tcTeam.setCellValueFactory(new PropertyValueFactory<Player, String>("team"));
 		tcName.setCellValueFactory(new PropertyValueFactory<Player, String>("name"));
 		tcAge.setCellValueFactory(new PropertyValueFactory<Player, Integer>("age"));

@@ -1,5 +1,7 @@
 package structures.binaryTree;
 
+import java.util.ArrayList;
+
 public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterface<K,E>{
 
 	private Node<K,E> root;
@@ -46,7 +48,7 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 	}
 
 	@Override
-	public E delete(K key) {
+	public ArrayList<E> delete(K key) {
 		Node<K,E> toDelete = searchNode(key);
 		Node<K,E> y = null;
 
@@ -74,7 +76,7 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 		}else{
 			//retornar error de que no existe el nodo
 		}
-		return y.getElement();
+		return y.getElements();
 	}
 
 	public Node<K,E> getSuccessor(Node<K,E> current){
@@ -87,7 +89,7 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 	}
 
 	@Override
-	public E search(K key) {
+	public ArrayList<E> search(K key) {
 		if(root == null) {
 			return null;
 		}else {
@@ -95,9 +97,9 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 		}
 	}
 	
-	public E search(K key,Node<K,E> current) {
+	public ArrayList<E> search(K key,Node<K,E> current) {
 		if(key.equals(current.getKey())) {
-			return current.getElement();
+			return current.getElements();
 		}else {
 			if(key.compareTo(current.getKey()) < 0 && current.getLeftSon() != null) {
 				return search(key, current.getLeftSon());
