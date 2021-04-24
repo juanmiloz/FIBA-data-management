@@ -1,14 +1,18 @@
-package structures.binaryTree;
+package structures.avlTree;
 
 import java.util.ArrayList;
 
-public class Node <K extends Comparable<K>,E>{
-	
+
+
+public class Node <K extends Comparable<K>,E> {
+
 	private K key;
+	//private E element;
+	private ArrayList<E> elements;
 	private Node<K,E> leftSon;
 	private Node<K,E> rightSon;
 	private Node<K,E> father;
-	private ArrayList<E> elements;
+	private int balanceFactor;
 	
 	public Node(K key, E element) {
 		this.key = key;
@@ -17,8 +21,8 @@ public class Node <K extends Comparable<K>,E>{
 		leftSon = null;
 		rightSon = null;
 		father = null; 
-		elements = new ArrayList<>();
 	}
+	
 	
 	public K getKey() {
 		return key;
@@ -68,4 +72,8 @@ public class Node <K extends Comparable<K>,E>{
 	public void addElement(E newElement){
 		elements.add(newElement);
 	}
+	
+	
+	
+	
 }
