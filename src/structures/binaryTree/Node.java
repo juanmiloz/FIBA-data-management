@@ -5,8 +5,6 @@ import java.util.ArrayList;
 public class Node <K extends Comparable<K>,E>{
 	
 	private K key;
-
-	private E element;
 	private Node<K,E> leftSon;
 	private Node<K,E> rightSon;
 	private Node<K,E> father;
