@@ -72,6 +72,16 @@ public class Node <K extends Comparable<K>,E> {
 	public void addElement(E newElement){
 		elements.add(newElement);
 	}
+
+
+	public int getBalanceFactor() {
+		return balanceFactor;
+	}
+
+
+	public void setBalanceFactor(int balanceFactor) {
+		this.balanceFactor = balanceFactor;
+	}
 	
 	
 	
