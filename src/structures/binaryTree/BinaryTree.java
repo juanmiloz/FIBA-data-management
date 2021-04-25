@@ -133,4 +133,20 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 			}
 		}
 	}
+	
+	public void rotateLeft(Node<K,E> root) {
+		Node<K,E> temp = root.getRightSon().getLeftSon();;
+		root.getRightSon().setLeftSon(root);
+		root.getRightSon().setFather(root.getFather());
+		root.setFather(root.getRightSon());
+		root.setRightSon(temp);
+	}
+	
+	public void rotateRight(Node<K,E> root) {
+		Node<K,E> temp = root.getLeftSon().getRightSon();
+		root.getLeftSon().setRightSon(root);
+		root.getLeftSon().setFather(root.getFather());
+		root.setFather(root.getLeftSon());
+		root.setLeftSon(temp);
+	}
 }

@@ -245,6 +245,7 @@ public class DataManagementGUI {
 			line = br.readLine();
 		}
 		br.close();
+		dataManagement.createBinaryTrees();
 		loadPlayers();
 	}
 

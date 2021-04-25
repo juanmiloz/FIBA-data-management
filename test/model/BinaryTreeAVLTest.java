@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import structures.binaryTree.BinaryTree;
+import structures.avlTree.*;
 
-class BinaryTreeTest {
+class BinaryTreeTestAVL {
 	
 	@Test
 	void testInsert() {
@@ -16,19 +16,32 @@ class BinaryTreeTest {
 		Player player4 = new Player("raul", "CHI", 1993, 40, 2, 1, 20, 39, 0.4, 20);
 		Player player5 = new Player("lebron", "CHI", 1997, 40, 2, 1, 20, 39, 0.4, 20);
 		Player player6 = new Player("james", "CHI", 1990, 40, 2, 1, 20, 39, 0.4, 20);
-		BinaryTree<Integer,Player> tree = new BinaryTree<>();
+		Player player7 = new Player("Giovanni", "CHI", 2000, 40, 2, 1, 20, 39, 0.4, 20);
+		AvlTree<Integer,Player> tree = new AvlTree<>();
 		tree.insert(player1.getYear(), player1);
+		assertEquals(0, tree.getRoot().getBalanceFactor());
 		tree.insert(player2.getYear(), player2);
+		assertEquals(1, tree.getRoot().getBalanceFactor());
 		tree.insert(player3.getYear(), player3);
+		assertEquals(0, tree.getRoot().getBalanceFactor());
 		tree.insert(player4.getYear(), player4);
+		assertEquals(-1, tree.getRoot().getBalanceFactor());
+		assertEquals(1, tree.getRoot().getRightSon().getBalanceFactor());
 		tree.insert(player5.getYear(), player5);
 		tree.insert(player6.getYear(), player6);
+		tree.insert(player7.getYear(), player7);
+		/*System.out.println(tree.getRoot().getBalanceFactor());
+		System.out.println(tree.getRoot().getLeftSon().getBalanceFactor());
+		System.out.println(tree.getRoot().getRightSon().getBalanceFactor());
+		System.out.println(tree.getRoot().getRightSon().getLeftSon().getBalanceFactor());
+		System.out.println(tree.getRoot().getRightSon().getRightSon().getBalanceFactor());*/
 		assertEquals(player1, tree.getRoot().getElement());
 		assertEquals(player2, tree.getRoot().getLeftSon().getElement());
 		assertEquals(player3, tree.getRoot().getRightSon().getElement());
 		assertEquals(player4, tree.getRoot().getRightSon().getLeftSon().getElement());
 		assertEquals(player5, tree.getRoot().getRightSon().getRightSon().getElement());
 		assertEquals(player6, tree.getRoot().getElements().get(1));
+		assertEquals(-2, tree.getRoot().getBalanceFactor());
 	}
 	
 	@Test
@@ -38,7 +51,7 @@ class BinaryTreeTest {
 		Player player3 = new Player("lebron", "CHI", 1995, 40, 2, 1, 20, 39, 0.4, 20);
 		Player player4 = new Player("lebron", "CHI", 1993, 40, 2, 1, 20, 39, 0.4, 20);
 		Player player5 = new Player("lebron", "CHI", 1997, 40, 2, 1, 20, 39, 0.4, 20);
-		BinaryTree<Integer,Player> tree = new BinaryTree<>();
+		AvlTree<Integer,Player> tree = new AvlTree<>();
 		tree.insert(player1.getYear(), player1);
 		tree.insert(player2.getYear(), player2);
 		tree.insert(player3.getYear(), player3);
@@ -61,7 +74,7 @@ class BinaryTreeTest {
 		Player player4 = new Player("lebron", "CHI", 1993, 40, 2, 1, 20, 39, 0.4, 20);
 		Player player5 = new Player("lebron", "CHI", 1997, 40, 2, 1, 20, 39, 0.4, 20);
 		Player player6 = new Player("Pepe", "CHI", 1997, 40, 2, 1, 20, 39, 0.4, 20);
-		BinaryTree<Integer,Player> tree = new BinaryTree<>();
+		AvlTree<Integer,Player> tree = new AvlTree<>();
 		tree.insert(player1.getYear(), player1);
 		tree.insert(player2.getYear(), player2);
 		tree.insert(player3.getYear(), player3);

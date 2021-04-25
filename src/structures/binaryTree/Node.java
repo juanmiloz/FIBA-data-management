@@ -5,11 +5,10 @@ import java.util.ArrayList;
 public class Node <K extends Comparable<K>,E>{
 	
 	private K key;
-	//private E element;
-	private ArrayList<E> elements;
 	private Node<K,E> leftSon;
 	private Node<K,E> rightSon;
 	private Node<K,E> father;
+	private ArrayList<E> elements;
 	
 	public Node(K key, E element) {
 		this.key = key;
