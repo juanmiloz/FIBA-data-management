@@ -13,6 +13,7 @@ public class Node <K extends Comparable<K>,E> {
 	private Node<K,E> rightSon;
 	private Node<K,E> father;
 	private int balanceFactor;
+	private int height;
 	
 	public Node(K key, E element) {
 		this.key = key;
@@ -21,8 +22,17 @@ public class Node <K extends Comparable<K>,E> {
 		leftSon = null;
 		rightSon = null;
 		father = null; 
+		balanceFactor=0;
+		height=1;
 	}
 	
+	
+	
+
+	
+	public void calculateBalance() {
+		balanceFactor= rightSon.height-leftSon.height;
+	}
 	
 	public K getKey() {
 		return key;
