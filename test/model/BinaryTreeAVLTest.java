@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import structures.avlTree.*;
+import structures.avlTree.AvlTree;
 
 class BinaryTreeTestAVL {
 	

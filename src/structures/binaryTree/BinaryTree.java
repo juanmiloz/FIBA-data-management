@@ -6,18 +6,12 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 
 	private Node<K,E> root;
 	
+
 	public BinaryTree() {
 		this.root = null;
 	}
-	
-	public Node<K,E> getRoot(){
-		return root;
-	}
-	
-	public void setRoot(Node<K,E> root) {
-		this.root = root;
-	}
-	
+
+
 	@Override
 	public void insert(K key, E element) {
 		if(root == null) {
@@ -26,7 +20,7 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 			insert(root, key, element);
 		}
 	}
-	
+
 	public void insert(Node<K,E> current, K key, E element) {
 		if(key.compareTo(current.getKey())==0){
 			current.addElement(element);
@@ -96,7 +90,7 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 			return search(key, root);
 		}
 	}
-	
+
 	public ArrayList<E> search(K key,Node<K,E> current) {
 		if(key.equals(current.getKey())) {
 			return current.getElements();
@@ -110,7 +104,7 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 			}
 		}
 	}
-	
+
 	@Override
 	public Node<K,E> searchNode(K key) {
 		if(root == null) {
@@ -119,7 +113,7 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 			return searchNode(key, root);
 		}
 	}
-	
+
 	public Node<K,E> searchNode(K key,Node<K,E> current) {
 		if(key.equals(current.getKey())) {
 			return current;
@@ -133,7 +127,7 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 			}
 		}
 	}
-	
+
 	public void rotateLeft(Node<K,E> root) {
 		Node<K,E> temp = root.getRightSon().getLeftSon();;
 		root.getRightSon().setLeftSon(root);
@@ -141,12 +135,20 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 		root.setFather(root.getRightSon());
 		root.setRightSon(temp);
 	}
-	
+
 	public void rotateRight(Node<K,E> root) {
 		Node<K,E> temp = root.getLeftSon().getRightSon();
 		root.getLeftSon().setRightSon(root);
 		root.getLeftSon().setFather(root.getFather());
 		root.setFather(root.getLeftSon());
 		root.setLeftSon(temp);
+	}
+
+	public Node<K,E> getRoot(){
+		return root;
+	}
+
+	public void setRoot(Node<K,E> root) {
+		this.root = root;
 	}
 }

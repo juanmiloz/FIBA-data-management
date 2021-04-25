@@ -570,41 +570,7 @@ public class DataManagementGUI {
 
 
 	public void filter(int min, int max, int tree) {
-		System.out.println(min);
-		System.out.println(max);
-
-		switch(tree) {
-		//PER
-		case 1:
-			System.out.println("PER");
-			break;
-
-			//TS
-		case 2:
-			System.out.println("TS");
-			break;
-
-			//REB
-		case 3:
-			System.out.println("REB");
-			break;
-
-			//AST
-		case 4:
-			System.out.println("AST");
-			break;
-
-			//STL
-		case 5:
-			System.out.println("STL");
-			break;
-			
-			//BLK
-		case 6:
-			System.out.println("BLK");
-			break;
-		}
-
+		dataManagement.filter(min, max, tree);
 		modalStage.close();
 	}
 

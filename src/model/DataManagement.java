@@ -4,15 +4,17 @@ import java.util.ArrayList;
 
 import structures.avlTree.AvlTree;
 import structures.binaryTree.BinaryTree;
+import structures.binaryTree.Node;
 
 public class DataManagement {
 
-	ArrayList<Player> listPlayer;
-	AvlTree<Double,Player> avlTreePER;
-	AvlTree<Double,Player> avlTreeTS;
-	AvlTree<Double,Player> avlTreeRB;
-	AvlTree<Double,Player> avlTreeAS;
-	BinaryTree<Double,Player> abbTreeSTL;
+	private ArrayList<Player> listPlayer;
+	private AvlTree<Double,Player> avlTreePER;
+	private AvlTree<Double,Player> avlTreeTS;
+	private AvlTree<Double,Player> avlTreeRB;
+	private AvlTree<Double,Player> avlTreeAS;
+	private BinaryTree<Double,Player> abbTreeSTL;
+	private ArrayList<Player> displayList;
 
 	public DataManagement() {
 		listPlayer = new ArrayList<>();
@@ -22,6 +24,7 @@ public class DataManagement {
 		avlTreeAS = new AvlTree<>();
 		abbTreeSTL = new BinaryTree<>();
 	}
+	
 	/**
      * Name: addPlayer
      * Method used to add new player to list of players<br>
@@ -71,6 +74,79 @@ public class DataManagement {
 			avlTreeRB.insert(listPlayer.get(c).getRebounds(), listPlayer.get(c));
 			avlTreeAS.insert(listPlayer.get(c).getAssists(), listPlayer.get(c));
 			abbTreeSTL.insert(listPlayer.get(c).getSteals(), listPlayer.get(c));
+		}
+	}
+	
+	
+	//Filter methods
+		public void filter(int min,int max) {
+
+			
+		}
+
+		
+		
+		
+		
+		public Node<Double,Player> findMin(Node<Double,Player> node, int min) {
+			Node<Double,Player> current= node;
+	
+			if(current.getKey()>=min) {
+				while(current.getLeftSon() != null) {
+					current=current.getLeftSon();
+				}
+			}
+			return current;
+		}
+
+		public void addInorder( Node<Double,Player> root,int max) {
+			if (root != null) {
+				addInorder(root.getLeftSon(),max);
+				if(root.getKey()<=max) {
+					displayList.addAll(root.getElements());
+					addInorder(root.getRightSon(),max);
+				}
+				
+			}
+		}
+	
+	public void filter(int min,int max,int tree) {
+		
+
+		switch(tree) {
+		//PER
+		case 1:
+			System.out.println("PER");
+			break;
+
+			//TS
+		case 2:
+			System.out.println("TS");
+			break;
+
+			//REB
+		case 3:
+			System.out.println("REB");
+			break;
+
+			//AST
+		case 4:
+			System.out.println("AST");
+			break;
+
+			//STL
+		case 5:
+			
+			//test findMin
+			System.out.println("STL");
+			System.out.println(min);
+			System.out.println(max);
+			break;
+			
+			//BLK
+		case 6:
+			System.out.println("BLK");
+			break;
 		}
 	}
 }
