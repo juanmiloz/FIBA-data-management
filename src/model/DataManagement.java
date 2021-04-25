@@ -2,12 +2,25 @@ package model;
 
 import java.util.ArrayList;
 
+import structures.avlTree.AvlTree;
+import structures.binaryTree.BinaryTree;
+
 public class DataManagement {
 
 	ArrayList<Player> listPlayer;
+	AvlTree<Double,Player> avlTreePER;
+	AvlTree<Double,Player> avlTreeTS;
+	AvlTree<Double,Player> avlTreeRB;
+	AvlTree<Double,Player> avlTreeAS;
+	BinaryTree<Double,Player> abbTreeSTL;
 
 	public DataManagement() {
 		listPlayer = new ArrayList<>();
+		avlTreePER = new AvlTree<>();
+		avlTreeTS = new AvlTree<>();
+		avlTreeRB = new AvlTree<>();
+		avlTreeAS = new AvlTree<>();
+		abbTreeSTL = new BinaryTree<>();
 	}
 	/**
      * Name: addPlayer
@@ -49,5 +62,15 @@ public class DataManagement {
 			}
 		}
 		return playerTemporates;
+	}
+	
+	public void createBinaryTrees() {
+		for(int c = 0; c < listPlayer.size(); c++) {
+			avlTreePER.insert(listPlayer.get(c).getPer(), listPlayer.get(c));
+			avlTreeTS.insert(listPlayer.get(c).getTrueShooting(), listPlayer.get(c));
+			avlTreeRB.insert(listPlayer.get(c).getRebounds(), listPlayer.get(c));
+			avlTreeAS.insert(listPlayer.get(c).getAssists(), listPlayer.get(c));
+			abbTreeSTL.insert(listPlayer.get(c).getSteals(), listPlayer.get(c));
+		}
 	}
 }

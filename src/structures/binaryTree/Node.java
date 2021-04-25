@@ -17,7 +17,6 @@ public class Node <K extends Comparable<K>,E>{
 		leftSon = null;
 		rightSon = null;
 		father = null; 
-		elements = new ArrayList<>();
 	}
 	
 	public K getKey() {
