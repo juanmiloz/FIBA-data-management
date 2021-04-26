@@ -129,7 +129,10 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 	}
 
 	public void rotateLeft(Node<K,E> root) {
-		Node<K,E> temp = root.getRightSon().getLeftSon();;
+		if(root.getFather()==null) {
+			this.root = root.getRightSon();
+		}
+		Node<K,E> temp = root.getRightSon().getLeftSon();
 		root.getRightSon().setLeftSon(root);
 		root.getRightSon().setFather(root.getFather());
 		root.setFather(root.getRightSon());
@@ -137,6 +140,9 @@ public class BinaryTree<K extends Comparable<K>,E> implements BinaryTreeInterfac
 	}
 
 	public void rotateRight(Node<K,E> root) {
+		if(root.getFather()==null) {
+			this.root = root.getLeftSon();
+		}
 		Node<K,E> temp = root.getLeftSon().getRightSon();
 		root.getLeftSon().setRightSon(root);
 		root.getLeftSon().setFather(root.getFather());

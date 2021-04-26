@@ -33,7 +33,7 @@ public class DataManagementGUI {
 
 
 	//Attributes mainPane.fxml
-	private final static String DATA_BASE = "data/dataBase/NBA_Season_Data.csv";
+	private final static String DATA_BASE = "data/dataBase/Prueba.csv";
 	@FXML
 	private BorderPane mainPane;
 
