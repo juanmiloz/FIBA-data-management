@@ -23,21 +23,22 @@ public class DataManagement {
 		avlTreeRB = new AvlTree<>();
 		avlTreeAS = new AvlTree<>();
 		abbTreeSTL = new BinaryTree<>();
+		displayList=new ArrayList<>();
 	}
-	
+
 	/**
-     * Name: addPlayer
-     * Method used to add new player to list of players<br>
-     * @param name - name of the player  - name = String, name != null, name != ""
-     * @param team - team of the player  - team = String, team != null, team != ""
-     * @param year - year of player´s debut - year = int
-     * @param age - age of player - age = int
-     * @param per - Player efficiency rating - per = double
-     * @param trueShooting - TrueShoting - trueShooting = double
-     * @param rebounds - rebounds of the player - rebounds = double
-     * @param assists - assists of the player - assists = double
-     * @param steals - steals of the player - steals = double
-     * @param blocks - blocks of the player - block = double
+	 * Name: addPlayer
+	 * Method used to add new player to list of players<br>
+	 * @param name - name of the player  - name = String, name != null, name != ""
+	 * @param team - team of the player  - team = String, team != null, team != ""
+	 * @param year - year of player´s debut - year = int
+	 * @param age - age of player - age = int
+	 * @param per - Player efficiency rating - per = double
+	 * @param trueShooting - TrueShoting - trueShooting = double
+	 * @param rebounds - rebounds of the player - rebounds = double
+	 * @param assists - assists of the player - assists = double
+	 * @param steals - steals of the player - steals = double
+	 * @param blocks - blocks of the player - block = double
 	 */
 	public void addPlayer(String name, String team, int year, int age, double per, double trueShooting, double rebounds, double assists, double steals, double blocks){
 		Player newPlayer = new Player(name,team,year,age,per,trueShooting,rebounds,assists,steals, blocks);
@@ -47,7 +48,7 @@ public class DataManagement {
 	 * Name: getListPlayer
 	 * Method used to get players list. <br>
 	 * @return A ArrayList<Player> representing players list.
-	*/
+	 */
 	public ArrayList<Player> getListPlayer(){
 		return listPlayer;
 	}
@@ -66,7 +67,7 @@ public class DataManagement {
 		}
 		return playerTemporates;
 	}
-	
+
 	public void createBinaryTrees() {
 		for(int c = 0; c < listPlayer.size(); c++) {
 			avlTreePER.insert(listPlayer.get(c).getPer(), listPlayer.get(c));
@@ -75,44 +76,75 @@ public class DataManagement {
 			avlTreeAS.insert(listPlayer.get(c).getAssists(), listPlayer.get(c));
 			abbTreeSTL.insert(listPlayer.get(c).getSteals(), listPlayer.get(c));
 		}
+		
+		displayList=listPlayer;
 	}
-	
-	
+
+
 	//Filter methods
-		public void filter(int min,int max) {
-
-			
-		}
+	public void filter(Node<Double,Player> root,Double min,Double max) {
 
 		
-		
-		
-		
-		public Node<Double,Player> findMin(Node<Double,Player> node, int min) {
-			Node<Double,Player> current= node;
-	
-			if(current.getKey()>=min) {
-				while(current.getLeftSon() != null) {
-					current=current.getLeftSon();
+		Node<Double,Player> minNode= findMin(root,min);
+		System.out.println(minNode.getElement().getName());
+		System.out.println(minNode.getKey());
+		if(!minNode.equals(root)) {
+			while(minNode!=null) {
+				if(minNode.getKey()>=min) {
+					displayList.addAll(minNode.getElements());
 				}
+				addInorder(minNode.getRightSon(),min,max);
+				minNode=minNode.getFather();
 			}
-			return current;
-		}
-
-		public void addInorder( Node<Double,Player> root,int max) {
-			if (root != null) {
-				addInorder(root.getLeftSon(),max);
-				if(root.getKey()<=max) {
-					displayList.addAll(root.getElements());
-					addInorder(root.getRightSon(),max);
-				}
-				
+		}else {
+			while(minNode.getKey()<min) {
+				minNode=minNode.getRightSon();
 			}
+			if(minNode.getKey()>=min) {
+				displayList.addAll(minNode.getElements());
+			}
+			addInorder(minNode.getRightSon(),min,max);
 		}
-	
-	public void filter(int min,int max,int tree) {
 		
+		//verificar si el nodominimo es menor al valor minimo
+		//recorrer el derecho del nodo minimo
+		//al finalizar subir y repitar hasta que sea nulo o maximo
+		//if(minNode)
+		System.out.println(min);
+		System.out.println(max);
+	}
 
+
+
+
+
+	public Node<Double,Player> findMin(Node<Double,Player> node, Double min) {
+		Node<Double,Player> current= node;
+
+		if(current.getKey()>=min) {
+			while(current.getLeftSon() != null) {
+				current=current.getLeftSon();
+			}
+		}
+		return current;
+	}
+
+	public void addInorder(Node<Double,Player> root,Double min,Double max) {
+
+		if (root != null) {
+
+			addInorder(root.getLeftSon(),min,max);
+			if(root.getKey()>=min && root.getKey()<=max) {
+				System.out.println("sisas "+root.getElements().get(0).getName());
+				displayList.addAll(root.getElements());
+				addInorder(root.getRightSon(),min,max);
+			}
+
+		}
+	}
+
+	public void filter(Double min,Double max,int tree) {
+		displayList.clear();
 		switch(tree) {
 		//PER
 		case 1:
@@ -136,17 +168,26 @@ public class DataManagement {
 
 			//STL
 		case 5:
-			
-			//test findMin
-			System.out.println("STL");
-			System.out.println(min);
-			System.out.println(max);
+			filter(abbTreeSTL.getRoot(), min, max);
+			System.out.println(displayList.size());
+			//System.out.println("STL");
+
 			break;
-			
+
 			//BLK
 		case 6:
 			System.out.println("BLK");
 			break;
 		}
 	}
+
+	public ArrayList<Player> getDisplayList() {
+		return displayList;
+	}
+
+	public void setDisplayList(ArrayList<Player> displayList) {
+		this.displayList = displayList;
+	}
+	
+	
 }
