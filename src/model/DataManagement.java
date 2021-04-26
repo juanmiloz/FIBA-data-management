@@ -96,21 +96,30 @@ public class DataManagement {
 			}
 		}else {
 			Node<Double,Player> maxMinNode;
-			while(minNode.getRightSon()!= null && minNode.getKey()<=min) {
+			while(minNode.getRightSon()!= null && minNode.getKey()<min) {
 				minNode=minNode.getRightSon();
 			}
+			System.out.println(minNode.getElement().getName()+", "+minNode.getKey());
 			maxMinNode=minNode;
-			System.out.println(minNode.getElement().getName()+ ","+ minNode.getKey());
 			minNode= findMin(minNode,min);
-			System.out.println(minNode.getElement().getName()+ ","+ minNode.getKey());
-			System.out.println(minNode.getRightSon().getElement().getName()+ ","+ minNode.getRightSon().getKey());
+			System.out.println(minNode.getElement().getName()+", "+minNode.getKey());
 			
-			
-			
-			if(minNode.getKey()>=min && minNode.getKey()<=max) {
-				displayList.addAll(minNode.getElements());
+			while(!minNode.equals(maxMinNode)) {
+				System.out.println("sisas");
+				if(minNode.getKey()>=min && minNode.getKey()<=max) {
+					displayList.addAll(minNode.getElements());
+				}
+				addInorder(minNode.getRightSon(),min,max);
+				minNode=minNode.getFather();
 			}
-			addInorder(minNode.getRightSon(),min,max);
+			
+			if(minNode.equals(maxMinNode)) {
+				if(minNode.getKey()>=min && minNode.getKey()<=max) {
+					displayList.addAll(minNode.getElements());
+				}
+				addInorder(minNode.getRightSon(),min,max);
+				minNode=minNode.getFather();
+			}
 			
 			/*while(minNode) {
 				if(minNode.getKey()>=min && minNode.getKey()<=max) {
@@ -136,7 +145,7 @@ public class DataManagement {
 		Node<Double,Player> current= node;
 
 		
-		while(current.getLeftSon() != null && current.getKey()>=min) {
+		while(current.getLeftSon() != null && current.getKey()>min) {
 				current=current.getLeftSon();
 			
 		}
@@ -167,13 +176,18 @@ public class DataManagement {
 		System.out.println(current.getLeftSon().getElement().getName()+ ", "+current.getLeftSon().getKey());
 	}
 
+	
+	private void filterAVL(structures.avlTree.Node<Double, Player> root, Double min, Double max) {
+		
+		
+	}
 	public void filter(Double min,Double max,int tree) {
-		prueba();
+		//prueba();
 		displayList.clear();
 		switch(tree) {
 		//PER
 		case 1:
-			System.out.println("PER");
+			filterAVL(avlTreePER.getRoot(), min, max);
 			break;
 
 			//TS
@@ -205,6 +219,8 @@ public class DataManagement {
 			break;
 		}
 	}
+
+	
 
 	public ArrayList<Player> getDisplayList() {
 		return displayList;
