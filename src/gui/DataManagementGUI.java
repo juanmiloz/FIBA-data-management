@@ -251,7 +251,7 @@ public class DataManagementGUI {
 
 	public void loadPlayers(){
 		ObservableList<Player> observableList;
-		observableList = FXCollections.observableList(dataManagement.getListPlayer());
+		observableList = FXCollections.observableList(dataManagement.getDisplayList());
 		tvPlayers.setItems(observableList);
 		tcYear.setCellValueFactory(new PropertyValueFactory<Player, String>("year"));
 		tcTeam.setCellValueFactory(new PropertyValueFactory<Player, String>("team"));
@@ -442,17 +442,17 @@ public class DataManagementGUI {
 	@FXML
 	void btnFilterPERContinue(ActionEvent event) {
 
-		int min;
-		int max;
+		double min;
+		double max;
 		if(txtFieldPERLower.getText().isEmpty()) {
-			min=Integer.MIN_VALUE;;
+			min=Double.MIN_VALUE;;
 		}else {
-			min= Integer.parseInt(txtFieldPERLower.getText());	
+			min= Double.parseDouble(txtFieldPERLower.getText());	
 		}
 		if(txtFieldPERUpper.getText().isEmpty()) {
-			max=Integer.MAX_VALUE;
+			max=Double.MAX_VALUE;
 		}else {
-			max= Integer.parseInt(txtFieldPERUpper.getText());
+			max= Double.parseDouble(txtFieldPERUpper.getText());
 		}
 
 		filter(min, max,1);
@@ -462,17 +462,17 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterTSContinue(ActionEvent event) {
-		int min;
-		int max;
+		Double min;
+		Double max;
 		if(txtFieldTSLower.getText().isEmpty()) {
-			min=Integer.MIN_VALUE;;
+			min=Double.MIN_VALUE;
 		}else {
-			min= Integer.parseInt(txtFieldTSLower.getText());	
+			min= Double.parseDouble(txtFieldTSLower.getText());	
 		}
 		if(txtFieldTSUpper.getText().isEmpty()) {
-			max=Integer.MAX_VALUE;
+			max=Double.MAX_VALUE;
 		}else {
-			max= Integer.parseInt(txtFieldTSUpper.getText());
+			max= Double.parseDouble(txtFieldTSUpper.getText());
 		}
 
 		filter(min, max,2);
@@ -485,17 +485,17 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterREBContinue(ActionEvent event) {
-		int min;
-		int max;
+		Double min;
+		Double max;
 		if(txtFieldREBLower.getText().isEmpty()) {
-			min=Integer.MIN_VALUE;;
+			min=Double.MIN_VALUE;;
 		}else {
-			min= Integer.parseInt(txtFieldREBLower.getText());	
+			min= Double.parseDouble(txtFieldREBLower.getText());	
 		}
 		if(txtFieldREBUpper.getText().isEmpty()) {
-			max=Integer.MAX_VALUE;
+			max=Double.MAX_VALUE;
 		}else {
-			max= Integer.parseInt(txtFieldREBUpper.getText());
+			max= Double.parseDouble(txtFieldREBUpper.getText());
 		}
 
 		filter(min, max,3);
@@ -505,17 +505,17 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterASTContinue(ActionEvent event) {
-		int min;
-		int max;
+		Double min;
+		Double max;
 		if(txtFieldASTLower.getText().isEmpty()) {
-			min=Integer.MIN_VALUE;;
+			min=Double.MIN_VALUE;;
 		}else {
-			min= Integer.parseInt(txtFieldASTLower.getText());	
+			min= Double.parseDouble(txtFieldASTLower.getText());	
 		}
 		if(txtFieldASTUpper.getText().isEmpty()) {
-			max=Integer.MAX_VALUE;
+			max=Double.MAX_VALUE;
 		}else {
-			max= Integer.parseInt(txtFieldASTUpper.getText());
+			max= Double.parseDouble(txtFieldASTUpper.getText());
 		}
 
 		filter(min, max,4);
@@ -525,17 +525,17 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterSTLContinue(ActionEvent event) {
-		int min;
-		int max;
+		Double min;
+		Double max;
 		if(txtFieldSTLLower.getText().isEmpty()) {
-			min=Integer.MIN_VALUE;;
+			min=Double.MIN_VALUE;;
 		}else {
-			min= Integer.parseInt(txtFieldSTLLower.getText());	
+			min= Double.parseDouble(txtFieldSTLLower.getText());	
 		}
 		if(txtFieldSTLUpper.getText().isEmpty()) {
-			max=Integer.MAX_VALUE;
+			max=Double.MAX_VALUE;
 		}else {
-			max= Integer.parseInt(txtFieldSTLUpper.getText());
+			max= Double.parseDouble(txtFieldSTLUpper.getText());
 		}
 
 		filter(min, max,5);
@@ -545,17 +545,17 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterBLKContinue(ActionEvent event) {
-		int min;
-		int max;
+		Double min;
+		Double max;
 		if(txtFieldBLKLower.getText().isEmpty()) {
-			min=Integer.MIN_VALUE;;
+			min=Double.MIN_VALUE;;
 		}else {
-			min= Integer.parseInt(txtFieldBLKLower.getText());	
+			min= Double.parseDouble(txtFieldBLKLower.getText());	
 		}
 		if(txtFieldBLKUpper.getText().isEmpty()) {
-			max=Integer.MAX_VALUE;
+			max=Double.MAX_VALUE;
 		}else {
-			max= Integer.parseInt(txtFieldBLKUpper.getText());
+			max= Double.parseDouble(txtFieldBLKUpper.getText());
 		}
 
 		filter(min, max,6);
@@ -569,8 +569,10 @@ public class DataManagementGUI {
 	}
 
 
-	public void filter(int min, int max, int tree) {
+	public void filter(Double min, Double max, int tree) {
 		dataManagement.filter(min, max, tree);
+		loadPlayers();
+		tvPlayers.refresh();
 		modalStage.close();
 	}
 
