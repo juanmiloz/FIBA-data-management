@@ -95,46 +95,11 @@ public class DataManagement {
 				minNode=minNode.getFather();
 			}
 		}else {
-			Node<Double,Player> maxMinNode;
 			while(minNode.getRightSon()!= null && minNode.getKey()<min) {
 				minNode=minNode.getRightSon();
 			}
-			System.out.println(minNode.getElement().getName()+", "+minNode.getKey());
-			maxMinNode=minNode;
-			minNode= findMin(minNode,min);
-			System.out.println(minNode.getElement().getName()+", "+minNode.getKey());
-			
-			while(!minNode.equals(maxMinNode)) {
-				System.out.println("sisas");
-				if(minNode.getKey()>=min && minNode.getKey()<=max) {
-					displayList.addAll(minNode.getElements());
-				}
-				addInorder(minNode.getRightSon(),min,max);
-				minNode=minNode.getFather();
-			}
-			
-			if(minNode.equals(maxMinNode)) {
-				if(minNode.getKey()>=min && minNode.getKey()<=max) {
-					displayList.addAll(minNode.getElements());
-				}
-				addInorder(minNode.getRightSon(),min,max);
-				minNode=minNode.getFather();
-			}
-			
-			/*while(minNode) {
-				if(minNode.getKey()>=min && minNode.getKey()<=max) {
-					displayList.addAll(minNode.getElements());
-				}
-				addInorder(minNode.getRightSon(),min,max);
-				minNode=minNode.getFather();
-			}*/
+			addInorder(minNode,min,max);
 		}
-		
-		//verificar si el nodominimo es menor al valor minimo
-		//recorrer el derecho del nodo minimo
-		//al finalizar subir y repitar hasta que sea nulo o maximo
-		//if(minNode)
-		
 	}
 
 
@@ -161,26 +126,18 @@ public class DataManagement {
 			addInorder(root.getLeftSon(),min,max);
 			if(root.getKey()>=min && root.getKey()<=max) {
 				displayList.addAll(root.getElements());
-				addInorder(root.getRightSon(),min,max);
 			}
+			addInorder(root.getRightSon(),min,max);
 
 		}
 	}
 	
-	public void prueba() {
-		Node<Double,Player> current= abbTreeSTL.getRoot();
-		while(current.getRightSon()!=null) {
-			current=current.getRightSon();
-			
-		}
-		System.out.println(current.getLeftSon().getElement().getName()+ ", "+current.getLeftSon().getKey());
-	}
-
 	
 	private void filterAVL(structures.avlTree.Node<Double, Player> root, Double min, Double max) {
 		
 		
 	}
+	
 	public void filter(Double min,Double max,int tree) {
 		//prueba();
 		displayList.clear();
