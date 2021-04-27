@@ -10,7 +10,7 @@ public interface AvlTreeInterface <K extends Comparable<K>,E>{
 	public Node<K,E> searchNode(K key);
 	public void rotateRight(Node<K,E> n);
 	public void rotateLeft(Node<K,E> n);
-	public void rebalance(Node<K,E> n);
+	public void rebalance(Node<K, E> n);
 	
 	
 }

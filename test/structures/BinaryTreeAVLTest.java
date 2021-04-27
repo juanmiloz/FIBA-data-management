@@ -22,12 +22,12 @@ class BinaryTreeTestAVL {
 		tree.insert(player1.getYear(), player1);
 		assertEquals(0, tree.getRoot().getBalanceFactor());
 		tree.insert(player2.getYear(), player2);
-		assertEquals(1, tree.getRoot().getBalanceFactor());
+		assertEquals(-1, tree.getRoot().getBalanceFactor());
 		tree.insert(player3.getYear(), player3);
 		assertEquals(0, tree.getRoot().getBalanceFactor());
 		tree.insert(player4.getYear(), player4);
-		assertEquals(-1, tree.getRoot().getBalanceFactor());
-		assertEquals(1, tree.getRoot().getRightSon().getBalanceFactor());
+		assertEquals(1, tree.getRoot().getBalanceFactor());
+		assertEquals(-1, tree.getRoot().getRightSon().getBalanceFactor());
 		tree.insert(player5.getYear(), player5);
 		tree.insert(player6.getYear(), player6);
 		tree.insert(player7.getYear(), player7);
@@ -36,12 +36,12 @@ class BinaryTreeTestAVL {
 		System.out.println(tree.getRoot().getRightSon().getBalanceFactor());
 		System.out.println(tree.getRoot().getRightSon().getLeftSon().getBalanceFactor());
 		System.out.println(tree.getRoot().getRightSon().getRightSon().getBalanceFactor());*/
-		assertEquals(player1, tree.getRoot().getElement());
-		assertEquals(player2, tree.getRoot().getLeftSon().getElement());
-		assertEquals(player3, tree.getRoot().getRightSon().getElement());
-		assertEquals(player4, tree.getRoot().getRightSon().getLeftSon().getElement());
-		assertEquals(player5, tree.getRoot().getRightSon().getRightSon().getElement());
-		assertEquals(player6, tree.getRoot().getElements().get(1));
+		assertEquals(player3, tree.getRoot().getElement());
+		assertEquals(player5, tree.getRoot().getRightSon().getElement());
+		assertEquals(player6, tree.getRoot().getLeftSon().getElement());
+		assertEquals(player2, tree.getRoot().getLeftSon().getLeftSon().getElement());
+		assertEquals(player4, tree.getRoot().getLeftSon().getRightSon().getElement());
+		assertEquals(player7, tree.getRoot().getRightSon().getRightSon().getElement());
 		assertEquals(-2, tree.getRoot().getBalanceFactor());
 	}
 	

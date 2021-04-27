@@ -15,8 +15,13 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 		if(current == null) {
 			return 0;
 		}
-		int newBalance = maxDepth(current.getLeftSon()) - maxDepth(current.getRightSon());
+		int pLeft = maxDepth(current.getLeftSon());
+		int pRight = maxDepth(current.getRightSon());
+		int newBalance = pRight - pLeft;
 		current.setBalanceFactor(newBalance);
+		if(newBalance > 1 || newBalance < -1) {
+			rebalance(current);
+		}
 		recalculateFactorBalances(current.getFather());
 		return 0;
 	}
@@ -121,7 +126,7 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 	}
 	
 	public void rotateLeft(Node<K,E> root) {
-		Node<K,E> temp = root.getRightSon().getLeftSon();;
+		Node<K,E> temp = root.getRightSon().getLeftSon();
 		root.getRightSon().setLeftSon(root);
 		root.getRightSon().setFather(root.getFather());
 		root.setFather(root.getRightSon());
@@ -145,17 +150,28 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 	}
 
 	@Override
-	public void rebalance(structures.avlTree.Node<K, E> n) {
-		// TODO Auto-generated method stub
+	public void rebalance(Node<K, E> n) {
+		//Caso A y Caso B
+		if(n.getBalanceFactor() > 1 && (n.getRightSon().getBalanceFactor() == 0 || n.getRightSon().getBalanceFactor() == 1)) {
+			rotateLeft(n);
+		}
 		
+		//Caso C
+		if(n.getBalanceFactor() > 1 && n.getRightSon().getBalanceFactor() == -1) {
+			rotateRight(n.getRightSon());
+			rotateLeft(n);
+		}
+		
+		//Caso D y Caso E
+		if(n.getBalanceFactor() < -1 && (n.getLeftSon().getBalanceFactor() == 0 || n.getLeftSon().getBalanceFactor() == -1)) {
+			rotateRight(n);
+		}
+				
+		//Caso F
+		if(n.getBalanceFactor() < -1 && n.getLeftSon().getBalanceFactor() == 1) {
+			rotateLeft(n.getLeftSon());
+			rotateRight(n);
+		}
 	}
-
-
-	
-
-
-	
-	
-
 
 }
