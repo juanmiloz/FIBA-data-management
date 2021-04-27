@@ -118,6 +118,19 @@ public class DataManagement {
 		
 		return current;
 	}
+	
+	public structures.avlTree.Node<Double,Player> findMinAVL(structures.avlTree.Node<Double, Player> node, Double min) {
+		structures.avlTree.Node<Double,Player> current= node;
+
+		
+		while(current.getLeftSon() != null && current.getKey()>min) {
+				current=current.getLeftSon();
+			
+		}
+		
+		
+		return current;
+	}
 
 	public void addInorder(Node<Double,Player> root,Double min,Double max) {
 
@@ -132,10 +145,36 @@ public class DataManagement {
 		}
 	}
 	
+	public void addInorderAVL(structures.avlTree.Node<Double,Player> root,Double min,Double max) {
+
+		if (root != null) {
+
+			addInorderAVL(root.getLeftSon(),min,max);
+			if(root.getKey()>=min && root.getKey()<=max) {
+				displayList.addAll(root.getElements());
+			}
+			addInorderAVL(root.getRightSon(),min,max);
+
+		}
+	}
+	
 	
 	private void filterAVL(structures.avlTree.Node<Double, Player> root, Double min, Double max) {
-		
-		
+		structures.avlTree.Node<Double, Player> minNode= findMinAVL(root,min);
+		if(!minNode.equals(root)) {
+			while(minNode!=null) {
+				if(minNode.getKey()>=min && minNode.getKey()<=max) {
+					displayList.addAll(minNode.getElements());
+				}
+				addInorderAVL(minNode.getRightSon(),min,max);
+				minNode=minNode.getFather();
+			}
+		}else {
+			while(minNode.getRightSon()!= null && minNode.getKey()<min) {
+				minNode=minNode.getRightSon();
+			}
+			addInorderAVL(minNode,min,max);
+		}
 	}
 	
 	public void filter(Double min,Double max,int tree) {
@@ -145,21 +184,25 @@ public class DataManagement {
 		//PER
 		case 1:
 			filterAVL(avlTreePER.getRoot(), min, max);
+			System.out.println(displayList.size());
 			break;
 
 			//TS
 		case 2:
-			System.out.println("TS");
+			filterAVL(avlTreeTS.getRoot(), min, max);
+			System.out.println(displayList.size());
 			break;
 
 			//REB
 		case 3:
-			System.out.println("REB");
+			filterAVL(avlTreeRB.getRoot(), min, max);
+			System.out.println(displayList.size());
 			break;
 
 			//AST
 		case 4:
-			System.out.println("AST");
+			filterAVL(avlTreeAS.getRoot(), min, max);
+			System.out.println(displayList.size());
 			break;
 
 			//STL
@@ -172,11 +215,19 @@ public class DataManagement {
 
 			//BLK
 		case 6:
-			System.out.println("BLK");
+			System.out.println("Blocks");
+			linealSearch(min, max);
 			break;
 		}
 	}
 
+	private void linealSearch(Double min, Double max) {
+		for(int c = 0; c < listPlayer.size(); c++) {
+			if(listPlayer.get(c).getBlocks() >= min && listPlayer.get(c).getBlocks() <= max) {
+				displayList.add(listPlayer.get(c));
+			}
+		}
+	}
 	
 
 	public ArrayList<Player> getDisplayList() {
