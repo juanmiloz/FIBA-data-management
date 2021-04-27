@@ -33,7 +33,7 @@ public class DataManagementGUI {
 
 
 	//Attributes mainPane.fxml
-	private final static String DATA_BASE = "data/dataBase/Prueba.csv";
+	private final static String DATA_BASE = "data/dataBase/NBA_Season_Data.csv";
 	@FXML
 	private BorderPane mainPane;
 
@@ -188,7 +188,8 @@ public class DataManagementGUI {
 	@FXML
 	private Label txtLabelTime;
 
-	private Stage modalStage;
+	private Stage modalStageTime;
+	private Stage modalStageFilter;
 
 	private ArrayList<Player> playerTempotares;
 
@@ -292,14 +293,14 @@ public class DataManagementGUI {
 
 		Parent modalTime = fxmlLoader.load();
 
-		modalStage = new Stage();
-		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
-		modalStage.setScene(new Scene(modalTime));
-		txtLabelTime.setText(timeToSearch + " ms");;
-		modalStage.setTitle("Elapsed Time");
-		modalStage.initModality(Modality.APPLICATION_MODAL);
+		modalStageTime = new Stage();
+		modalStageTime.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageTime.setScene(new Scene(modalTime));
+		txtLabelTime.setText(timeToSearch + " ns");
+		modalStageTime.setTitle("Elapsed Time");
+		modalStageTime.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.showAndWait();
+		modalStageTime.showAndWait();
 
 	}
 
@@ -311,13 +312,13 @@ public class DataManagementGUI {
 
 		Parent infoPlayer = fxmlLoader.load();
 
-		modalStage = new Stage();
-		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
-		modalStage.setScene(new Scene(infoPlayer));
-		modalStage.setTitle("Info Player");
-		modalStage.initModality(Modality.APPLICATION_MODAL);
+		modalStageFilter = new Stage();
+		modalStageFilter.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageFilter.setScene(new Scene(infoPlayer));
+		modalStageFilter.setTitle("Info Player");
+		modalStageFilter.initModality(Modality.APPLICATION_MODAL);
 		loadInfoPlayer(playerInfo, 0, 1);
-		modalStage.showAndWait();
+		modalStageFilter.showAndWait();
 
 	}
 
@@ -342,14 +343,14 @@ public class DataManagementGUI {
 
 		Parent modalAST = fxmlLoader.load();
 
-		modalStage = new Stage();
-		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
-		modalStage.setScene(new Scene(modalAST));
+		modalStageFilter = new Stage();
+		modalStageFilter.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageFilter.setScene(new Scene(modalAST));
 
-		modalStage.setTitle("Assists Filter");
-		modalStage.initModality(Modality.APPLICATION_MODAL);
+		modalStageFilter.setTitle("Assists Filter");
+		modalStageFilter.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.showAndWait();
+		modalStageFilter.showAndWait();
 	}
 
 	@FXML
@@ -359,13 +360,13 @@ public class DataManagementGUI {
 
 		Parent modalPer = fxmlLoader.load();
 
-		modalStage = new Stage();
-		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
-		modalStage.setScene(new Scene(modalPer));
+		modalStageFilter = new Stage();
+		modalStageFilter.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageFilter.setScene(new Scene(modalPer));
 
-		modalStage.setTitle("Player Efficiency Rating Filter");
-		modalStage.initModality(Modality.APPLICATION_MODAL);
-		modalStage.showAndWait();
+		modalStageFilter.setTitle("Player Efficiency Rating Filter");
+		modalStageFilter.initModality(Modality.APPLICATION_MODAL);
+		modalStageFilter.showAndWait();
 
 	}
 
@@ -376,13 +377,13 @@ public class DataManagementGUI {
 
 		Parent modalREB = fxmlLoader.load();
 
-		modalStage = new Stage();
-		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
-		modalStage.setScene(new Scene(modalREB));
-		modalStage.setTitle("Rebounds Filter");
-		modalStage.initModality(Modality.APPLICATION_MODAL);
+		modalStageFilter = new Stage();
+		modalStageFilter.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageFilter.setScene(new Scene(modalREB));
+		modalStageFilter.setTitle("Rebounds Filter");
+		modalStageFilter.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.showAndWait();
+		modalStageFilter.showAndWait();
 	}
 
 	@FXML
@@ -392,14 +393,14 @@ public class DataManagementGUI {
 
 		Parent modalSTL = fxmlLoader.load();
 
-		modalStage = new Stage();
-		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
-		modalStage.setScene(new Scene(modalSTL));
+		modalStageFilter = new Stage();
+		modalStageFilter.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageFilter.setScene(new Scene(modalSTL));
 
-		modalStage.setTitle("Steals Filter");
-		modalStage.initModality(Modality.APPLICATION_MODAL);
+		modalStageFilter.setTitle("Steals Filter");
+		modalStageFilter.initModality(Modality.APPLICATION_MODAL);
 
-		modalStage.showAndWait();
+		modalStageFilter.showAndWait();
 	}
 
 	@FXML
@@ -409,15 +410,15 @@ public class DataManagementGUI {
 
 		Parent modalTS = fxmlLoader.load();
 
-		modalStage = new Stage();
-		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
-		modalStage.setScene(new Scene(modalTS));
+		modalStageFilter = new Stage();
+		modalStageFilter.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageFilter.setScene(new Scene(modalTS));
 
-		modalStage.setTitle("True Shooting Filter");
-		modalStage.initModality(Modality.APPLICATION_MODAL);
+		modalStageFilter.setTitle("True Shooting Filter");
+		modalStageFilter.initModality(Modality.APPLICATION_MODAL);
 
 
-		modalStage.showAndWait();
+		modalStageFilter.showAndWait();
 	}
 
 	@FXML
@@ -427,20 +428,20 @@ public class DataManagementGUI {
 
 		Parent modalBLK = fxmlLoader.load();
 
-		modalStage = new Stage();
-		modalStage.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
-		modalStage.setScene(new Scene(modalBLK));
-		modalStage.setTitle("Blocks Filter");
-		modalStage.initModality(Modality.APPLICATION_MODAL);
+		modalStageFilter = new Stage();
+		modalStageFilter.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageFilter.setScene(new Scene(modalBLK));
+		modalStageFilter.setTitle("Blocks Filter");
+		modalStageFilter.initModality(Modality.APPLICATION_MODAL);
 
 
-		modalStage.showAndWait();
+		modalStageFilter.showAndWait();
 	}
 
 	//methods modals
 
 	@FXML
-	void btnFilterPERContinue(ActionEvent event) {
+	void btnFilterPERContinue(ActionEvent event) throws IOException {
 
 		double min;
 		double max;
@@ -461,7 +462,7 @@ public class DataManagementGUI {
 	}
 
 	@FXML
-	void btnFilterTSContinue(ActionEvent event) {
+	void btnFilterTSContinue(ActionEvent event) throws IOException {
 		Double min;
 		Double max;
 		if(txtFieldTSLower.getText().isEmpty()) {
@@ -484,7 +485,7 @@ public class DataManagementGUI {
 
 
 	@FXML
-	void btnFilterREBContinue(ActionEvent event) {
+	void btnFilterREBContinue(ActionEvent event) throws IOException {
 		Double min;
 		Double max;
 		if(txtFieldREBLower.getText().isEmpty()) {
@@ -504,7 +505,7 @@ public class DataManagementGUI {
 	}
 
 	@FXML
-	void btnFilterASTContinue(ActionEvent event) {
+	void btnFilterASTContinue(ActionEvent event) throws IOException {
 		Double min;
 		Double max;
 		if(txtFieldASTLower.getText().isEmpty()) {
@@ -524,7 +525,7 @@ public class DataManagementGUI {
 	}
 
 	@FXML
-	void btnFilterSTLContinue(ActionEvent event) {
+	void btnFilterSTLContinue(ActionEvent event) throws IOException {
 		Double min;
 		Double max;
 		if(txtFieldSTLLower.getText().isEmpty()) {
@@ -541,10 +542,11 @@ public class DataManagementGUI {
 		filter(min, max,5);
 		txtFieldSTLLower.setText("");
 		txtFieldSTLUpper.setText("");
+		
 	}
 
 	@FXML
-	void btnFilterBLKContinue(ActionEvent event) {
+	void btnFilterBLKContinue(ActionEvent event) throws IOException {
 		Double min;
 		Double max;
 		if(txtFieldBLKLower.getText().isEmpty()) {
@@ -561,19 +563,32 @@ public class DataManagementGUI {
 		filter(min, max,6);
 		txtFieldBLKLower.setText("");
 		txtFieldBLKUpper.setText("");
+		
 	}
 
 	@FXML
 	void btnOkTime(ActionEvent event) {
-		modalStage.close();
+		modalStageTime.close();
+		modalStageFilter.close();
 	}
 
 
-	public void filter(Double min, Double max, int tree) {
+	public void filter(Double min, Double max, int tree) throws IOException {
+		
+		long timeToFilter;
+	
+		long startTime = System.nanoTime();
 		dataManagement.filter(min, max, tree);
+		long endTime = System.nanoTime();
+		timeToFilter= endTime - startTime;
+		System.out.println(timeToFilter);
+
+		loadTimeModal(timeToFilter);
+		
 		loadPlayers();
 		tvPlayers.refresh();
-		modalStage.close();
+		
+	
 	}
 
 

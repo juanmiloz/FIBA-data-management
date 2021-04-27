@@ -86,32 +86,20 @@ public class DataManagement {
 
 		
 		Node<Double,Player> minNode= findMin(root,min);
-		System.out.println(minNode.getElement().getName());
-		System.out.println(minNode.getKey());
 		if(!minNode.equals(root)) {
 			while(minNode!=null) {
-				if(minNode.getKey()>=min) {
+				if(minNode.getKey()>=min && minNode.getKey()<=max) {
 					displayList.addAll(minNode.getElements());
 				}
 				addInorder(minNode.getRightSon(),min,max);
 				minNode=minNode.getFather();
 			}
 		}else {
-			while(minNode.getKey()<min) {
+			while(minNode.getRightSon()!= null && minNode.getKey()<min) {
 				minNode=minNode.getRightSon();
 			}
-			if(minNode.getKey()>=min) {
-				displayList.addAll(minNode.getElements());
-			}
-			addInorder(minNode.getRightSon(),min,max);
+			addInorder(minNode,min,max);
 		}
-		
-		//verificar si el nodominimo es menor al valor minimo
-		//recorrer el derecho del nodo minimo
-		//al finalizar subir y repitar hasta que sea nulo o maximo
-		//if(minNode)
-		System.out.println(min);
-		System.out.println(max);
 	}
 
 
@@ -121,11 +109,13 @@ public class DataManagement {
 	public Node<Double,Player> findMin(Node<Double,Player> node, Double min) {
 		Node<Double,Player> current= node;
 
-		if(current.getKey()>=min) {
-			while(current.getLeftSon() != null) {
+		
+		while(current.getLeftSon() != null && current.getKey()>min) {
 				current=current.getLeftSon();
-			}
+			
 		}
+		
+		
 		return current;
 	}
 
@@ -135,20 +125,26 @@ public class DataManagement {
 
 			addInorder(root.getLeftSon(),min,max);
 			if(root.getKey()>=min && root.getKey()<=max) {
-				System.out.println("sisas "+root.getElements().get(0).getName());
 				displayList.addAll(root.getElements());
-				addInorder(root.getRightSon(),min,max);
 			}
+			addInorder(root.getRightSon(),min,max);
 
 		}
 	}
-
+	
+	
+	private void filterAVL(structures.avlTree.Node<Double, Player> root, Double min, Double max) {
+		
+		
+	}
+	
 	public void filter(Double min,Double max,int tree) {
+		//prueba();
 		displayList.clear();
 		switch(tree) {
 		//PER
 		case 1:
-			System.out.println("PER");
+			filterAVL(avlTreePER.getRoot(), min, max);
 			break;
 
 			//TS
@@ -180,6 +176,8 @@ public class DataManagement {
 			break;
 		}
 	}
+
+	
 
 	public ArrayList<Player> getDisplayList() {
 		return displayList;
