@@ -68,6 +68,7 @@ public class DataManagement {
 		return playerTemporates;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void createBinaryTrees() {
 		for(int c = 0; c < listPlayer.size(); c++) {
 			avlTreePER.insert(listPlayer.get(c).getPer(), listPlayer.get(c));
@@ -77,7 +78,7 @@ public class DataManagement {
 			abbTreeSTL.insert(listPlayer.get(c).getSteals(), listPlayer.get(c));
 		}
 		
-		displayList=listPlayer;
+		displayList=(ArrayList<Player>) listPlayer.clone();
 	}
 
 
@@ -215,7 +216,6 @@ public class DataManagement {
 
 			//BLK
 		case 6:
-			System.out.println("Blocks");
 			linealSearch(min, max);
 			break;
 		}

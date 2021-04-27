@@ -54,6 +54,9 @@ public class DataManagementGUI {
 
 	@FXML
 	private JFXButton btnBlocks;
+	
+	@FXML
+	private JFXButton btnAge;
 
 	@FXML
 	private JFXButton btnSearchByName;
@@ -335,6 +338,23 @@ public class DataManagementGUI {
 		txtStealsPlayer.setText(String.valueOf(playerInfo.get(pos).getSteals()));
 		labNumMax.setText(String.valueOf(playerInfo.size()));
 	}
+	
+    @FXML
+    void filterByAge(ActionEvent event) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalAST.fxml"));
+		fxmlLoader.setController(this);
+
+		Parent modalAST = fxmlLoader.load();
+
+		modalStageFilter = new Stage();
+		modalStageFilter.getIcons().add(new Image(new FileInputStream("data/images/FIBA_logo.png")));
+		modalStageFilter.setScene(new Scene(modalAST));
+
+		modalStageFilter.setTitle("Assists Filter");
+		modalStageFilter.initModality(Modality.APPLICATION_MODAL);
+
+		modalStageFilter.showAndWait();
+    }
 
 	@FXML
 	void filterByAssists(ActionEvent event) throws IOException {
@@ -529,7 +549,7 @@ public class DataManagementGUI {
 		Double min;
 		Double max;
 		if(txtFieldSTLLower.getText().isEmpty()) {
-			min=Double.MIN_VALUE;;
+			min=Double.MIN_VALUE;
 		}else {
 			min= Double.parseDouble(txtFieldSTLLower.getText());	
 		}
@@ -574,14 +594,12 @@ public class DataManagementGUI {
 
 
 	public void filter(Double min, Double max, int tree) throws IOException {
-		
 		long timeToFilter;
 	
 		long startTime = System.nanoTime();
 		dataManagement.filter(min, max, tree);
 		long endTime = System.nanoTime();
 		timeToFilter= endTime - startTime;
-		System.out.println(timeToFilter);
 
 		loadTimeModal(timeToFilter);
 		
