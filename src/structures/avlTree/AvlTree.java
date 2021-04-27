@@ -121,7 +121,12 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 	}
 	
 	public void rotateLeft(Node<K,E> root) {
-		Node<K,E> temp = root.getRightSon().getLeftSon();;
+		if(root.getFather()==null) {
+			this.root = root.getRightSon();
+		}else {
+			root.getFather().setLeftSon(root.getRightSon());
+		}
+		Node<K,E> temp = root.getRightSon().getLeftSon();
 		root.getRightSon().setLeftSon(root);
 		root.getRightSon().setFather(root.getFather());
 		root.setFather(root.getRightSon());
@@ -129,6 +134,11 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 	}
 	
 	public void rotateRight(Node<K,E> root) {
+		if(root.getFather()==null) {
+			this.root = root.getLeftSon();
+		}else {
+			root.getFather().setRightSon(root.getLeftSon());
+		}
 		Node<K,E> temp = root.getLeftSon().getRightSon();
 		root.getLeftSon().setRightSon(root);
 		root.getLeftSon().setFather(root.getFather());
