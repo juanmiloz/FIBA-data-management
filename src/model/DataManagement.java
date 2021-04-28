@@ -77,7 +77,7 @@ public class DataManagement {
 			avlTreeAS.insert(listPlayer.get(c).getAssists(), listPlayer.get(c));
 			abbTreeSTL.insert(listPlayer.get(c).getSteals(), listPlayer.get(c));
 		}
-		
+		System.out.println(listPlayer.size());
 		displayList=(ArrayList<Player>) listPlayer.clone();
 	}
 
@@ -141,7 +141,9 @@ public class DataManagement {
 			if(root.getKey()>=min && root.getKey()<=max) {
 				displayList.addAll(root.getElements());
 			}
-			addInorder(root.getRightSon(),min,max);
+			
+				addInorder(root.getRightSon(),min,max);
+			
 
 		}
 	}

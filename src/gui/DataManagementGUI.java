@@ -466,12 +466,12 @@ public class DataManagementGUI {
 		double min;
 		double max;
 		if(txtFieldPERLower.getText().isEmpty()) {
-			min=Double.MIN_VALUE;;
+			min=Integer.MIN_VALUE;
 		}else {
 			min= Double.parseDouble(txtFieldPERLower.getText());	
 		}
 		if(txtFieldPERUpper.getText().isEmpty()) {
-			max=Double.MAX_VALUE;
+			max=Integer.MAX_VALUE;
 		}else {
 			max= Double.parseDouble(txtFieldPERUpper.getText());
 		}
@@ -483,15 +483,15 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterTSContinue(ActionEvent event) throws IOException {
-		Double min;
-		Double max;
+		double min;
+		double max;
 		if(txtFieldTSLower.getText().isEmpty()) {
-			min=Double.MIN_VALUE;
+			min=Integer.MIN_VALUE;
 		}else {
 			min= Double.parseDouble(txtFieldTSLower.getText());	
 		}
 		if(txtFieldTSUpper.getText().isEmpty()) {
-			max=Double.MAX_VALUE;
+			max=Integer.MAX_VALUE;
 		}else {
 			max= Double.parseDouble(txtFieldTSUpper.getText());
 		}
@@ -506,15 +506,15 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterREBContinue(ActionEvent event) throws IOException {
-		Double min;
-		Double max;
+		double min;
+		double max;
 		if(txtFieldREBLower.getText().isEmpty()) {
-			min=Double.MIN_VALUE;;
+			min=Integer.MIN_VALUE;
 		}else {
 			min= Double.parseDouble(txtFieldREBLower.getText());	
 		}
 		if(txtFieldREBUpper.getText().isEmpty()) {
-			max=Double.MAX_VALUE;
+			max=Integer.MAX_VALUE;
 		}else {
 			max= Double.parseDouble(txtFieldREBUpper.getText());
 		}
@@ -526,15 +526,15 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterASTContinue(ActionEvent event) throws IOException {
-		Double min;
-		Double max;
+		double min;
+		double max;
 		if(txtFieldASTLower.getText().isEmpty()) {
-			min=Double.MIN_VALUE;;
+			min=Integer.MIN_VALUE;
 		}else {
 			min= Double.parseDouble(txtFieldASTLower.getText());	
 		}
 		if(txtFieldASTUpper.getText().isEmpty()) {
-			max=Double.MAX_VALUE;
+			max=Integer.MAX_VALUE;
 		}else {
 			max= Double.parseDouble(txtFieldASTUpper.getText());
 		}
@@ -546,15 +546,15 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterSTLContinue(ActionEvent event) throws IOException {
-		Double min;
-		Double max;
+		double min;
+		double max;
 		if(txtFieldSTLLower.getText().isEmpty()) {
-			min=Double.MIN_VALUE;
+			min=Integer.MIN_VALUE;
 		}else {
 			min= Double.parseDouble(txtFieldSTLLower.getText());	
 		}
 		if(txtFieldSTLUpper.getText().isEmpty()) {
-			max=Double.MAX_VALUE;
+			max=Integer.MAX_VALUE;
 		}else {
 			max= Double.parseDouble(txtFieldSTLUpper.getText());
 		}
@@ -567,15 +567,15 @@ public class DataManagementGUI {
 
 	@FXML
 	void btnFilterBLKContinue(ActionEvent event) throws IOException {
-		Double min;
-		Double max;
+		double min;
+		double max;
 		if(txtFieldBLKLower.getText().isEmpty()) {
-			min=Double.MIN_VALUE;;
+			min=Integer.MIN_VALUE;
 		}else {
 			min= Double.parseDouble(txtFieldBLKLower.getText());	
 		}
 		if(txtFieldBLKUpper.getText().isEmpty()) {
-			max=Double.MAX_VALUE;
+			max=Integer.MAX_VALUE;
 		}else {
 			max= Double.parseDouble(txtFieldBLKUpper.getText());
 		}
