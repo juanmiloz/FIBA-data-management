@@ -67,7 +67,10 @@ public class DataManagement {
 		}
 		return playerTemporates;
 	}
-
+	/**
+	 * Name: createBinaryTrees
+	 * Method used to create a new binary tree by filter. <br>
+	 */
 	@SuppressWarnings("unchecked")
 	public void createBinaryTrees() {
 		for(int c = 0; c < listPlayer.size(); c++) {
@@ -83,6 +86,13 @@ public class DataManagement {
 
 
 	//Filter methods
+	/**
+	 * Name: filter
+	 * Method used to filter by caracters. <br>
+	 * @param root - root of the binary tree - root = Node<Double,Player>
+	 * @param min - min rank - min = double
+	 * @param max - max rank - max = double
+	 */
 	public void filter(Node<Double,Player> root,Double min,Double max) {
 
 		
@@ -106,7 +116,13 @@ public class DataManagement {
 
 
 
-
+	/**
+	 * Name: findMin
+	 * Method find min key in the binary tree. <br>
+	 * @param node - root of the binary tree - node = Node<Double,Player>
+	 * @param min - min rank - min = double
+	 * @return a Node<Double,Player> representing min node
+	 */
 	public Node<Double,Player> findMin(Node<Double,Player> node, Double min) {
 		Node<Double,Player> current= node;
 
@@ -119,7 +135,13 @@ public class DataManagement {
 		
 		return current;
 	}
-	
+	/**
+	 * Name: findMinAVL
+	 * Method find min key in the binary tree. <br>
+	 * @param node - root of the binary tree - node = Node<Double,Player>
+	 * @param min - min rank - min = double
+	 * @return a structures.avlTree.Node<Double,Player> representing min node
+	 */
 	public structures.avlTree.Node<Double,Player> findMinAVL(structures.avlTree.Node<Double, Player> node, Double min) {
 		structures.avlTree.Node<Double,Player> current= node;
 
@@ -132,7 +154,13 @@ public class DataManagement {
 		
 		return current;
 	}
-
+	/**
+	 * Name: addInorder
+	 * Method to add in order in the binary tree. <br>
+	 * @param root - root of the binary tree - root = Node<Double,Player>
+	 * @param min - min rank - min = double
+	 * @param max - max rank - max = double
+	 */
 	public void addInorder(Node<Double,Player> root,Double min,Double max) {
 
 		if (root != null) {
@@ -147,7 +175,13 @@ public class DataManagement {
 
 		}
 	}
-	
+	/**
+	 * Name: addInorderAVL
+	 * Method to add in order in the binary tree. <br>
+	 * @param root - root of the binary tree - root = Node<Double,Player>
+	 * @param min - min rank - min = double
+	 * @param max - max rank - max = double
+	 */
 	public void addInorderAVL(structures.avlTree.Node<Double,Player> root,Double min,Double max) {
 
 		if (root != null) {
@@ -161,7 +195,13 @@ public class DataManagement {
 		}
 	}
 	
-	
+	/**
+	 * Name: filterAVL
+	 * Method used to filter by caracters in avl. <br>
+	 * @param root - root of the binary tree - root = Node<Double,Player>
+	 * @param min - min rank - min = double
+	 * @param max - max rank - max = double
+	 */
 	private void filterAVL(structures.avlTree.Node<Double, Player> root, Double min, Double max) {
 		structures.avlTree.Node<Double, Player> minNode= findMinAVL(root,min);
 		if(!minNode.equals(root)) {
@@ -179,7 +219,13 @@ public class DataManagement {
 			addInorderAVL(minNode,min,max);
 		}
 	}
-	
+	/**
+	 * Name: filter
+	 * Method used to filter by caracters. <br>
+	 * @param root - root of the binary tree - root = Node<Double,Player>
+	 * @param min - min rank - min = double
+	 * @param tree - binary tree to filter - tree = int
+	 */
 	public void filter(Double min,Double max,int tree) {
 		//prueba();
 		displayList.clear();
@@ -222,7 +268,12 @@ public class DataManagement {
 			break;
 		}
 	}
-
+	/**
+	 * Name: linealSearch
+	 * Method used to search linearly. <br>
+	 * @param min - min rank - min = double
+	 * @param max - max rank - max = double
+	 */
 	private void linealSearch(Double min, Double max) {
 		for(int c = 0; c < listPlayer.size(); c++) {
 			if(listPlayer.get(c).getBlocks() >= min && listPlayer.get(c).getBlocks() <= max) {
@@ -231,11 +282,19 @@ public class DataManagement {
 		}
 	}
 	
-
+	/**
+	 * Name: getDisplayList
+	 * Method used to get displayList. <br>
+	 * @return a ArrayList<Player> representing player list to show
+	 */
 	public ArrayList<Player> getDisplayList() {
 		return displayList;
 	}
-
+	/**
+	 * Name: setDisplayList
+	 * Method used update displayList. <br>
+	 * @param displayList - list to show - displayList = ArrayList<Player>
+	 */
 	public void setDisplayList(ArrayList<Player> displayList) {
 		this.displayList = displayList;
 	}

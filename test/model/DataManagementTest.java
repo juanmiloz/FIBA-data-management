@@ -2,6 +2,8 @@ package model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -31,10 +33,21 @@ class DataManagementTest extends TestCase {
 		assertTrue(x);
 		
 	}
+	@Test
 	public void test1() {
 		setUpEscenary1();
 		assertEquals("lebron", dm.searchPlayerLinearly("lebron").get(0).getName());
 
 	}
+	@Test
+	public void test3() {
+		setUpEscenary1();
+		ArrayList<Player> listPlayer =  new ArrayList<>();
+		listPlayer = dm.searchPlayerLinearly("lebron");
+		assertEquals("CHI", listPlayer.get(0).getTeam());
+	
+		
+	}
+
 
 }
