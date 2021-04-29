@@ -11,6 +11,8 @@ public interface AvlTreeInterface <K extends Comparable<K>,E>{
 	public void rotateRight(Node<K,E> n);
 	public void rotateLeft(Node<K,E> n);
 	public void rebalance(Node<K, E> n);
+	public int recalculateFactorBalances(Node<K,E> current);
+	public int maxDepth(Node<K,E> node);
 	
 	
 }

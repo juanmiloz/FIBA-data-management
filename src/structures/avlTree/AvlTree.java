@@ -11,7 +11,8 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 		this.root = null;
 	}
 	
-	private int recalculateFactorBalances(Node<K,E> current) {
+	@Override
+	public int recalculateFactorBalances(Node<K,E> current) {
 		if(current == null) {
 			return 0;
 		}
@@ -26,6 +27,7 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 		return 0;
 	}
 	
+	@Override
 	public int maxDepth(Node<K,E> node) {
         if (node == null)
             return 0;
@@ -74,7 +76,6 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 
 	@Override
 	public ArrayList<E> delete(K key) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -125,6 +126,7 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 		}
 	}
 	
+	@Override
 	public void rotateLeft(Node<K,E> root) {
 		if(root.getFather()==null) {
 			this.root = root.getRightSon();
@@ -138,6 +140,7 @@ public class AvlTree <K extends Comparable<K>,E> implements AvlTreeInterface<K,E
 		root.setRightSon(temp);
 	}
 	
+	@Override
 	public void rotateRight(Node<K,E> root) {
 		if(root.getFather()==null) {
 			this.root = root.getLeftSon();
