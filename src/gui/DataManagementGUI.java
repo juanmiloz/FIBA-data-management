@@ -196,11 +196,21 @@ public class DataManagementGUI {
 
 	private ArrayList<Player> playerTempotares;
 
+	/**
+	 * Name: DataManagementGUI
+	 * Method create management gui. <br>
+	 * @param dataManagement - datamanagement = DataManagement 
+	 */
 	public DataManagementGUI(DataManagement dataManagement) {
 		this.dataManagement = dataManagement;
 	}
 
-
+	/**
+	 * Name: showMainScreen
+	 * Method to show principal screen. <br>
+	 * @throws IOException
+	 * @throws CsvException
+	 */
 	public void showMainScreen() throws IOException, CsvException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainScreen.fxml"));
 		fxmlLoader.setController(this);
@@ -213,7 +223,12 @@ public class DataManagementGUI {
 		importData();
 		//importDataCSV();		
 	}
-
+	/**
+	 * Name: importDataCSV
+	 * Method to Import data to csv file in the memory of program. <br>
+	 * @throws IOException
+	 * @throws CsvException
+	 */
 	public void importDataCSV() throws IOException, CsvException {
 		FileReader filereader = new FileReader("data/dataBase/NBA_Season_Data.csv");
 		CSVReader csvReader = new CSVReaderBuilder(filereader).withSkipLines(1).build();
@@ -238,7 +253,11 @@ public class DataManagementGUI {
 		tcSteals.setCellValueFactory(new PropertyValueFactory<Player, Double>("steals"));
 		tcBlocks.setCellValueFactory(new PropertyValueFactory<Player, Double>("blocks"));
 	}*/
-
+	/**
+	 * Name: importData
+	 * Method to Import data to csv file in the memory of program and create players whit news atributes. <br>
+	 * @throws IOException
+	 */
 	public void importData() throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(DATA_BASE));
 		String line = br.readLine();
@@ -252,7 +271,10 @@ public class DataManagementGUI {
 		dataManagement.createBinaryTrees();
 		loadPlayers();
 	}
-
+	/**
+	 * Name: loadPlayers
+	 * Method to load news players and create relations. <br>
+	 */
 	public void loadPlayers(){
 		ObservableList<Player> observableList;
 		observableList = FXCollections.observableList(dataManagement.getDisplayList());
@@ -268,7 +290,12 @@ public class DataManagementGUI {
 		tcSteals.setCellValueFactory(new PropertyValueFactory<Player, Double>("steals"));
 		tcBlocks.setCellValueFactory(new PropertyValueFactory<Player, Double>("blocks"));
 	}
-
+	/**
+	 * Name: searchByName
+	 * Method to search a player by name. <br>
+	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	public void searchByName(ActionEvent event) throws IOException {
 		long timeToSearch;
@@ -289,7 +316,12 @@ public class DataManagementGUI {
 		}
 		txtFieldSearchName.setText("");
 	}
-
+	/**
+	 * Name: loadTimeModal
+	 * Method to count search time. <br>
+	 * @param timeToSearch - time to search - timeToSearch = long
+	 * @throws IOException
+	 */
 	public void loadTimeModal(long timeToSearch) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalTime.fxml"));
 		fxmlLoader.setController(this);
@@ -307,7 +339,12 @@ public class DataManagementGUI {
 
 	}
 
-
+	/**
+	 * Name: loadScreenPlayerInfo
+	 * Method to load screen for show info players. <br>
+	 * @param playerInfo - players info - playerInfo = ArrayList<Player>
+	 * @throws IOException
+	 */
 	public void loadScreenPlayerInfo(ArrayList<Player> playerInfo) throws IOException {
 
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("screenInfoPlayer.fxml"));
@@ -324,7 +361,13 @@ public class DataManagementGUI {
 		modalStageFilter.showAndWait();
 
 	}
-
+	/**
+	 * Name: loadInfoPlayer
+	 * Method to load info players. <br>
+	 * @param playerInfo - players info - playerInfo = ArrayList<Player>
+	 * @param pos - position in the table view
+	 * @param posCurrentLabel
+	 */
 	public void loadInfoPlayer(ArrayList<Player> playerInfo, int pos, int posCurrentLabel){
 		labNumCurrent.setText(String.valueOf(posCurrentLabel));
 		txtNamePlayer.setText(playerInfo.get(pos).getName());
@@ -338,7 +381,12 @@ public class DataManagementGUI {
 		txtStealsPlayer.setText(String.valueOf(playerInfo.get(pos).getSteals()));
 		labNumMax.setText(String.valueOf(playerInfo.size()));
 	}
-	
+	/**
+	 * Name: filterByAge
+	 * Method to filter by player age. <br>
+	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
     @FXML
     void filterByAge(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalAST.fxml"));
@@ -355,7 +403,12 @@ public class DataManagementGUI {
 
 		modalStageFilter.showAndWait();
     }
-
+    /**
+	 * Name: filterByAssists
+	 * Method to filter by player assist. <br>
+ 	 * @param event - event = ActionEvent
+     * @throws IOException
+     */
 	@FXML
 	void filterByAssists(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalAST.fxml"));
@@ -372,7 +425,12 @@ public class DataManagementGUI {
 
 		modalStageFilter.showAndWait();
 	}
-
+    /**
+	 * Name: filterByPER
+	 * Method to filter by player Player efficiency rating.<br>
+ 	 * @param event - event = ActionEvent
+     * @throws IOException
+     */
 	@FXML
 	void filterByPER(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalPER.fxml"));
@@ -389,7 +447,12 @@ public class DataManagementGUI {
 		modalStageFilter.showAndWait();
 
 	}
-
+	/**
+	 * Name: filterByRebounds
+	 * Method to filter by player rebound.<br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void filterByRebounds(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalREB.fxml"));
@@ -405,7 +468,12 @@ public class DataManagementGUI {
 
 		modalStageFilter.showAndWait();
 	}
-
+	/**
+	 * Name: filterBySteals
+	 * Method to filter by player steals.<br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void filterBySteals(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalSTL.fxml"));
@@ -422,7 +490,12 @@ public class DataManagementGUI {
 
 		modalStageFilter.showAndWait();
 	}
-
+	/**
+	 * Name: filterByTrueShooting
+	 * Method to filter by player true shooting.<br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void filterByTrueShooting(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalTS.fxml"));
@@ -440,7 +513,12 @@ public class DataManagementGUI {
 
 		modalStageFilter.showAndWait();
 	}
-
+	/**
+	 * Name: filterByBlocks
+	 * Method to filter by player blocks.<br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void filterByBlocks(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modalBLK.fxml"));
@@ -459,7 +537,12 @@ public class DataManagementGUI {
 	}
 
 	//methods modals
-
+	/**
+	 * Name: btnFilterPERContinue
+	 * Method to continue filter by player Player efficiency rating.<br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void btnFilterPERContinue(ActionEvent event) throws IOException {
 
@@ -480,7 +563,12 @@ public class DataManagementGUI {
 		txtFieldPERLower.setText("");
 		txtFieldPERUpper.setText("");
 	}
-
+	/**
+	 * Name: btnFilterTSContinue
+	 * Method to continue filter by true shooting. <br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void btnFilterTSContinue(ActionEvent event) throws IOException {
 		double min;
@@ -503,7 +591,12 @@ public class DataManagementGUI {
 
 
 
-
+	/**
+	 * Name: btnFilterREBContinue
+	 * Method to continue filter by player rebounds. <br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void btnFilterREBContinue(ActionEvent event) throws IOException {
 		double min;
@@ -523,7 +616,12 @@ public class DataManagementGUI {
 		txtFieldREBLower.setText("");
 		txtFieldREBUpper.setText("");
 	}
-
+	/**
+	 * Name: btnFilterASTContinue
+	 * Method to continue filter by AST. <br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void btnFilterASTContinue(ActionEvent event) throws IOException {
 		double min;
@@ -543,7 +641,12 @@ public class DataManagementGUI {
 		txtFieldASTLower.setText("");
 		txtFieldASTUpper.setText("");
 	}
-
+	/**
+	 * Name: btnFilterSTLContinue
+	 * Method to continue filter by player steals. <br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void btnFilterSTLContinue(ActionEvent event) throws IOException {
 		double min;
@@ -564,7 +667,12 @@ public class DataManagementGUI {
 		txtFieldSTLUpper.setText("");
 		
 	}
-
+	/**
+	 * Name: btnFilterBLKContinue
+	 * Method to continue filter by player blocks. <br>
+ 	 * @param event - event = ActionEvent
+	 * @throws IOException
+	 */
 	@FXML
 	void btnFilterBLKContinue(ActionEvent event) throws IOException {
 		double min;
@@ -585,15 +693,26 @@ public class DataManagementGUI {
 		txtFieldBLKUpper.setText("");
 		
 	}
-
+	/**
+	 * Name: btnOkTime
+	 * Method to continue show filter time. <br>
+ 	 * @param event - event = ActionEvent
+	 */
 	@FXML
 	void btnOkTime(ActionEvent event) {
 		modalStageTime.close();
 		modalStageFilter.close();
 	}
 
-
-	public void filter(Double min, Double max, int tree) throws IOException {
+	/**
+	 * Name: filter
+	 * Method used to filter by type to filter. <br>
+	 * @param min - min rank - min = double
+	 * @param max - max rank - max = double
+	 * @param tree - search binary tree - tree = int
+	 * @throws IOException
+	 */
+		public void filter(Double min, Double max, int tree) throws IOException {
 		long timeToFilter;
 	
 		long startTime = System.nanoTime();
@@ -611,7 +730,11 @@ public class DataManagementGUI {
 
 
 	//methods screenInfoPlayer
-
+	/**
+	 * Name: nextPlayer
+	 * Method used to show next player. <br>
+ 	 * @param event - event = ActionEvent
+	 */
 	@FXML
 	public void nextPlayer(ActionEvent event) {
 		if(Integer.parseInt(labNumCurrent.getText())==Integer.parseInt(labNumMax.getText())){
@@ -622,7 +745,11 @@ public class DataManagementGUI {
 			loadInfoPlayer(playerTempotares,pos, Integer.parseInt(String.valueOf(labNumCurrent.getText()))+1);
 		}
 	}
-
+	/**
+	 * Name: prevPlayer
+	 * Method used to show previous player. <br>
+ 	 * @param event - event = ActionEvent
+	 */
 	@FXML
 	public void prevPlayer(ActionEvent event) {
 		if(Integer.parseInt(labNumCurrent.getText())==1){
@@ -635,7 +762,12 @@ public class DataManagementGUI {
 	}
 
 	//alerts
-
+	/**
+	 * Name: showAbout
+	 * Method used to show credits screen. <br>
+ 	 * @param event - event = ActionEvent
+	 * @throws FileNotFoundException
+	 */
 	@FXML
 	public void showAbout(ActionEvent event) throws FileNotFoundException {
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -647,7 +779,11 @@ public class DataManagementGUI {
 
 		alert.showAndWait();
 	}
-
+	/**
+	 * Name: txtEmptyAlert
+	 * Method used to show alert screen from empty. <br>
+	 * @throws FileNotFoundException
+	 */
 	public void txtEmptyAlert() throws FileNotFoundException {
 		Alert alert = new Alert(AlertType.ERROR);
 		Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
@@ -657,7 +793,13 @@ public class DataManagementGUI {
 		alert.setContentText("The field cannot be empty");
 		alert.show();
 	}
-
+	/**
+	 * Name: infoPlayerAlert
+	 * Method used to show player info screen. <br>
+	 * @param player - player from show - player = Player
+	 * @param timeToSearch - timeToSearch = long
+	 * @throws FileNotFoundException
+	 */
 	public void infoPlayerAlert(Player player, long timeToSearch) throws FileNotFoundException {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
@@ -669,7 +811,12 @@ public class DataManagementGUI {
 		+ "\nAssists" + player.getAssists() + "\nSteals: " + player.getSteals() + "\nTime to search: " + timeToSearch + "milliseconds");
 		alert.show();
 	}
-
+	/**
+	 * Name: playerNotExistAlert
+	 * Method used to show alert screen from not find player. <br>
+	 * @param timeToSearch - timeToSearch = long
+	 * @throws FileNotFoundException
+	 */
 	public void playerNotExistAlert(long timeToSearch) throws FileNotFoundException {
 		Alert alert = new Alert(AlertType.ERROR);
 		Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
