@@ -298,6 +298,44 @@ public class DataManagement {
 	public void setDisplayList(ArrayList<Player> displayList) {
 		this.displayList = displayList;
 	}
-	
+	public AvlTree<Double, Player> getAvlTreePER() {
+        return avlTreePER;
+    }
+
+    public void setAvlTreePER(AvlTree<Double, Player> avlTreePER) {
+        this.avlTreePER = avlTreePER;
+    }
+
+    public AvlTree<Double, Player> getAvlTreeTS() {
+        return avlTreeTS;
+    }
+
+    public void setAvlTreeTS(AvlTree<Double, Player> avlTreeTS) {
+        this.avlTreeTS = avlTreeTS;
+    }
+
+    public AvlTree<Double, Player> getAvlTreeRB() {
+        return avlTreeRB;
+    }
+
+    public void setAvlTreeRB(AvlTree<Double, Player> avlTreeRB) {
+        this.avlTreeRB = avlTreeRB;
+    }
+
+    public AvlTree<Double, Player> getAvlTreeAS() {
+        return avlTreeAS;
+    }
+
+    public void setAvlTreeAS(AvlTree<Double, Player> avlTreeAS) {
+        this.avlTreeAS = avlTreeAS;
+    }
+
+    public BinaryTree<Double, Player> getAbbTreeSTL() {
+        return abbTreeSTL;
+    }
+
+    public void setAbbTreeSTL(BinaryTree<Double, Player> abbTreeSTL) {
+        this.abbTreeSTL = abbTreeSTL;
+    }
 	
 }

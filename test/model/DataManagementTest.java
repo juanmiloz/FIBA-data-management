@@ -48,6 +48,35 @@ class DataManagementTest extends TestCase {
 	
 		
 	}
-
+	@Test
+    public void createBinaryTreesTest() {
+        setUpEscenary1();
+        assertNull(dm.getAbbTreeSTL().getRoot());
+        assertNull(dm.getAvlTreeAS().getRoot());
+        assertNull(dm.getAvlTreePER().getRoot());
+        assertNull(dm.getAvlTreeRB().getRoot());
+        assertNull(dm.getAvlTreeTS().getRoot());
+        dm.createBinaryTrees();
+        assertNotNull(dm.getAbbTreeSTL().getRoot());
+        assertNotNull(dm.getAvlTreeAS().getRoot());
+        assertNotNull(dm.getAvlTreePER().getRoot());
+        assertNotNull(dm.getAvlTreeRB().getRoot());
+        assertNotNull(dm.getAvlTreeTS().getRoot());
+    }
+	@Test
+    public void filterTest() {
+        setUpEscenary1();
+        dm.createBinaryTrees();
+        dm.filter(1.0, 2.0, 1);
+        assertEquals(6, dm.getDisplayList().size());
+        dm.filter(1.0, 2.0, 2);
+        assertEquals(6, dm.getDisplayList().size());
+        dm.filter(20.0, 21.0, 3);
+        assertEquals(6, dm.getDisplayList().size());
+        dm.filter(39.0, 40.0, 4);
+        assertEquals(6, dm.getDisplayList().size());
+        dm.filter(0.4, 0.5, 5);
+        assertEquals(6, dm.getDisplayList().size());
+    }
 
 }
